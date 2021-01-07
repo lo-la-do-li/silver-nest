@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
+import About from '../About/About';
 import { Route, Switch } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
-import SingleLineGridList from '../Thumbnail/Thumbnail'
+import SingleLineGridList from '../Thumbnails/Thumbnails'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       </Box>
       <NavBar />
       <Switch>
-        <Route path="/about" />
+        <Route path="/about" component={About}/>
         <Route path="/get-involved" component={SingleLineGridList}/>
       </Switch>
     </div>

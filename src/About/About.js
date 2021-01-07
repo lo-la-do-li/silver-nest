@@ -21,17 +21,7 @@ const useStyles = makeStyles(theme => ({
     height: 450,
   },
   }));
-// * const tileData = [
-//  *   {
-//  *     img: image,
-//  *     title: 'Image',
-//  *     author: 'author',
-//  *     cols: 2,
-//  *   },
-//  *   {
-//  *     [etc...]
-//  *   },
-//  * ];
+
 const tileData = [
   {
     img: "https://ak.picdn.net/offset/photos/5f6d0e80a75ca0db370a31bc/medium/offset_1009282.jpg",

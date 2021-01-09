@@ -5,7 +5,6 @@ import Container from '@material-ui/core/Container';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 
-
 const useStyles = makeStyles(theme => ({
   root: {
       display: 'flex',

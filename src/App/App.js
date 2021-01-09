@@ -5,22 +5,41 @@ import About from '../About/About';
 import { Route, Switch } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import SingleLineGridList from '../Thumbnails/Thumbnails'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import turingSHSLogo from '../geometric-heart-logo.png'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#e6ffff',
+      main: '#b3e5fc',
+      dark: '#82b3c9'
+    },
+    secondary: {
+      light: '#b6ffff',
+      main: '#81d4fa',
+      dark: '#4ba3c7'
+    },
+  },
+});
 
 function App() {
   return (
-
+  <MuiThemeProvider theme={theme}>
     <div className="App">
-      <Box component="span" m={1}>
+      <Box component="span" display='flex' m={1}>
         <header>
           <h1>Silver Nest</h1>
         </header>
+        <img src={turingSHSLogo} alt='Turing School of Health Sciences'/>
       </Box>
-      <NavBar />
+      <NavBar theme={theme}/>
       <Switch>
         <Route path="/about" component={About}/>
         <Route path="/get-involved" component={SingleLineGridList}/>
       </Switch>
     </div>
+    </MuiThemeProvider>
   );
 }
 

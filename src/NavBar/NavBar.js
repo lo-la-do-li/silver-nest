@@ -38,7 +38,7 @@ export default function CenteredTabs({theme}) {
         <Tab label="About" component={Link} to="/about"/>
         <Tab label="Find A Roommate" component={Link} to="/find-a-roommate"/>
       </Tabs>
-         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'center', paddingRight:30}}>
+         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'center', paddingRight:40}}>
         <h3 style={{padding: "10", color:"#7c8181"}}>Silvernest</h3>
         <img className="App-logo" src={turingSHSLogo} alt='Turing School of Health Sciences'/>
         </div>

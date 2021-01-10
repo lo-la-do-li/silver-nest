@@ -3,7 +3,7 @@ import FindARoommate from '../FindARoommate/FindARoommate'
 import './App.css';
 import NavBar from '../NavBar/NavBar';
 import About from '../About/About';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import SingleLineGridList from '../Thumbnails/Thumbnails'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -35,6 +35,7 @@ function App() {
       </Box>
       <NavBar theme={theme}/>
       <Switch>
+        <Redirect from exact="/" to="/about" component={About}/>
         <Route path="/about" component={About}/>
         <Route path="/find-a-roommate" component={FindARoommate}/>
       </Switch>

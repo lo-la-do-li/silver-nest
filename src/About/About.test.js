@@ -6,6 +6,7 @@ import { Router, MemoryRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
 
 describe('About', () => {
+  //this testing file will mostly be for unit testing
   it.skip('It should display a description of the app and the collaboration', () => {
     // setup and execution 
     render(

@@ -6,6 +6,7 @@ import { Router, MemoryRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
 
 describe('App', () => {
+  //This testing file focuses more on integration testing
   it.skip('It should display a header', () => {
     // setup and execution 
     render(
@@ -46,5 +47,4 @@ describe('App', () => {
     // assertions
     expect(screen.getByText()).toBeInTheDocument()
   })
-  //This testing file focuses more on integration testing
 })

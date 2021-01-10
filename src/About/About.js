@@ -32,6 +32,13 @@ const useStyles = makeStyles(theme => ({
     // width: 500,
     // height: 100%,
   },
+    h1: {
+      textAlign: 'left', 
+      color:"#7c8181"
+    },
+    button: {
+      padding: 20
+    }
 //   .MuiButton-outlined {
 //     // border: 1px solid rgba(0, 0, 0, 0.23);
 //     padding: 10px 15px;
@@ -56,12 +63,11 @@ const About = () => {
         </Box> */}
       <Box padding={7}>
         {/* <div style={{display: "flex", flexDirection: 'row', justifyContent: 'center'}}>
-        <h1 style={{padding: "10", color:"#7c8181"}}>Silvernest</h1>
         <img className="App-logo" src={turingSHSLogo} alt='Turing School of Health Sciences'/>
         </div> */}
-       <h1 style={{textAlign: 'left', color:"#7c8181"}}>Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living resort, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.</h1>
+       <h1 className={classes.h1}>Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living resort, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.</h1>
        </Box>
-       <Button component={Link} to='/find-a-roommate' style={{padding: 20}} variant="outlined" color="primary">
+       <Button className={classes.button} component={Link} to='/find-a-roommate' variant="outlined" color="primary">
           Find a Roommate
       </Button> 
        </div>

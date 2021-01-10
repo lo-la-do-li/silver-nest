@@ -28,40 +28,6 @@ const useStyles = makeStyles((theme) => ({
       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 }));
-
-// const residents = [
- 
-//   {
-//     img: 'https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg',
-//     title: 'Ralph',
-//     author: 'author',
-//    },
-//    {
-//     img: 'https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg',
-//     title: 'Doris',
-//     author: 'author',
-//     },
-//     {
-//     img: 'https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg',
-//     title: 'Ralph',
-//     author: 'author',
-//    },
-//     {
-//     img: 'https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg',
-//     title: 'Doris',
-//     author: 'author',
-//     },
-//    {
-//     img: 'https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg',
-//     title: 'Doris',
-//     author: 'author',
-//     },
-//     {
-//     img: 'https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg',
-//     title: 'Ralph',
-//     author: 'author',
-//    },
-//  ];
  
 export default function SingleLineGridList({availableResidents, semesterAvailable}) {
   const classes = useStyles();

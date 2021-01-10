@@ -7,7 +7,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import Button from '@material-ui/core/Button';
 import turingSHSLogo from '../geometric-heart-logo.png';
 import { Link } from 'react-router-dom';
-
+import { tileData } from '../assets/tileData.js';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,44 +33,10 @@ const useStyles = makeStyles(theme => ({
 // }
   }));
 
-const tileData = [
-  {
-    img: "https://ak.picdn.net/offset/photos/5f6d0e80a75ca0db370a31bc/medium/offset_1009282.jpg",
-    title: "image1",
-    cols: 1
-  },
-   {
-    img: "https://c8.alamy.com/comp/BX103M/party-event-in-older-peoples-residential-retirement-community-BX103M.jpg",
-    title: "image2",
-    cols: 2
-  },
-   {
-    img: "https://c8.alamy.com/comp/JAJ1TK/students-and-seniors-making-small-talk-in-workshop-break-JAJ1TK.jpg",
-    title: "image3",
-    cols: 2
-  },
-  {
-    img: "https://c8.alamy.com/comp/D51WWG/senior-klara-fuerst-78-and-student-sarah-boehm-20-cut-fruit-at-the-D51WWG.jpg",
-    title: "image4",
-    cols: 1
-  },
-  {
-    img: "https://www.theexaminernews.com/examiner-news/wp-content/uploads/2020/11/WPAssistedLiving-400x217.jpg",
-    title: "image5",
-    cols: 3
-  }
-]
-
 const About = () => {
   const classes = useStyles();
   return (
      <div className={classes.root}>
-      {/* <Box display="flex" flexDirection="column" alignItems="stretch" padding={4}>
-       <h1>Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living residence, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.</h1>
-       </Box> */}
-      {/* <Container maxWidth="lg" className={classes.container}>
-       Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living residence, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.
-       </Container> */}
       <GridList cellHeight={160} className={classes.gridList} cols={3}>
         {tileData.map((tile) => (
           <GridListTile key={tile.img} cols={tile.cols || 1}>

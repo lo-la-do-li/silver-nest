@@ -27,11 +27,10 @@ function App() {
   return (
   <MuiThemeProvider theme={theme}>
     <div className="App">
-      <Box component="span" display='flex' m={1}>
-        <header>
-          <h1>Silver Nest</h1>
-        </header>
-        <img src={turingSHSLogo} alt='Turing School of Health Sciences'/>
+      <Box component="span" display='flex' justifyContent="space-between" flexDirection="row" padding={1} m={1}>
+        <img className="App-logo" src={turingSHSLogo} alt='Turing School of Health Sciences'/>
+        <h1>Silver Nest</h1>
+        <img className="App-logo" src={turingSHSLogo} alt='Turing School of Health Sciences'/>
       </Box>
       <NavBar theme={theme}/>
       <Switch>

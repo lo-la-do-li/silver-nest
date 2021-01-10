@@ -7,6 +7,13 @@ import userEvent from '@testing-library/user-event';
 
 describe('About', () => {
   it.skip('It should display a description of the app and the collaboration', () => {
-    
+    // setup and execution 
+    render(
+
+    )
+    //execution
+      
+    // assertions
+    expect(screen.getByText()).toBeInTheDocument()
   })
 })

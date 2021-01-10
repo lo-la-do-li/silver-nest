@@ -5,7 +5,7 @@ import Form from './Form';
 import { Router, MemoryRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
 
-describe('About', () => {
+describe('Form', () => {
   //this file will mostly be for unit testing
   it.skip('It should display a form', () => {
     // setup and execution 

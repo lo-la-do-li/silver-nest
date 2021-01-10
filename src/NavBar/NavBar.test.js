@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 import { Router, MemoryRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
 
-describe('About', () => {
+describe('NavBar', () => {
   //This test file will mostly be for unit testing
   it.skip('It should display a description of the app and the collaboration', () => {
     // setup and execution 

@@ -13,12 +13,12 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#e6ffff',
-      main: '#b3e5fc',
+      main: '#2196f3',
       dark: '#82b3c9'
     },
     secondary: {
       light: '#b6ffff',
-      main: '#81d4fa',
+      main: '#4ba3c7',
       dark: '#4ba3c7'
     },
   },
@@ -28,14 +28,14 @@ function App() {
   return (
   <MuiThemeProvider theme={theme}>
     <div className="App">
-      <Box component="span" display='flex' justifyContent="space-between" flexDirection="row" padding={1} m={1}>
+      {/* <Box component="span" display='flex' justifyContent="space-between" flexDirection="row" padding={1} m={1}>
         <img className="App-logo" src={turingSHSLogo} alt='Turing School of Health Sciences'/>
         <h1>Silver Nest</h1>
         <img className="App-logo" src={turingSHSLogo} alt='Turing School of Health Sciences'/>
-      </Box>
-      <NavBar theme={theme}/>
+      </Box> */}
+      <NavBar/>
       <Switch>
-        <Redirect from exact="/" to="/about" component={About}/>
+        <Redirect exact path="/" to="/about" component={About}/>
         <Route path="/about" component={About}/>
         <Route path="/find-a-roommate" component={FindARoommate}/>
       </Switch>

@@ -24,7 +24,10 @@ export default function FindARoomate() {
   
   return(
     <div>
-      <ControlledOpenSelect selectSemester={selectSemester}/>
+      <div style={{paddingTop: 90, paddingBottom: 80}}>
+      <h1 style={{color:"#7c8181"}}>Select a semester:</h1>
+      <ControlledOpenSelect style={{marginTop:-20}} selectSemester={selectSemester}/>
+      </div>
       <SingleLineGridList availableResidents={residents} semesterAvailable={semester}/>
     </div>
   )

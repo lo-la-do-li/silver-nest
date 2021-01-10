@@ -63,7 +63,7 @@ const tileData = [
    },
  ];
  
-export default function SingleLineGridList() {
+export default function SingleLineGridList({semesterAvailable}) {
   const classes = useStyles();
 
   return (
@@ -73,7 +73,7 @@ export default function SingleLineGridList() {
           <GridListTile key={tile.img}>
             <img src={tile.img} alt={tile.title} />
             <GridListTileBar
-              title={tile.title}
+              title={semesterAvailable}
               classes={{
                 root: classes.titleBar,
                 title: classes.title,

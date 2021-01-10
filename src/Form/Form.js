@@ -12,13 +12,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ControlledOpenSelect() {
+export default function ControlledOpenSelect({selectSemester}) {
   const classes = useStyles();
   const [semester, setSemester] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    setSemester(event.target.value);
+    const selectedSemester = event.target.value;
+    selectSemester(selectedSemester);
+    event.preventDefault();
   };
 
   const handleClose = () => {
@@ -31,7 +33,7 @@ export default function ControlledOpenSelect() {
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl} semester={semester}>
         <InputLabel id="demo-controlled-open-select-label">Choose a semester</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"

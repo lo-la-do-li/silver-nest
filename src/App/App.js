@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
-import './App.scss';
+import FindARoommate from '../FindARoommate/FindARoommate'
+import './App.css';
 import NavBar from '../NavBar/NavBar';
 import About from '../About/About';
 import { Route, Switch } from 'react-router-dom';
@@ -35,7 +36,7 @@ function App() {
       <NavBar theme={theme}/>
       <Switch>
         <Route path="/about" component={About}/>
-        <Route path="/find-a-roommate" component={SingleLineGridList}/>
+        <Route path="/find-a-roommate" component={FindARoommate}/>
       </Switch>
     </div>
     </MuiThemeProvider>

@@ -29,7 +29,7 @@ export default function CenteredTabs() {
         centered
       >
         <Tab label="About" component={Link} to="/about"/>
-        <Tab label="Get Involved" component={Link} to="/get-involved"/>
+        <Tab label="Find a Roommate" component={Link} to="/find-a-roommate"/>
       </Tabs>
     </Paper>
   );

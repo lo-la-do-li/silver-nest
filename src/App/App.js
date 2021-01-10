@@ -35,7 +35,7 @@ function App() {
       <NavBar theme={theme}/>
       <Switch>
         <Route path="/about" component={About}/>
-        <Route path="/get-involved" component={SingleLineGridList}/>
+        <Route path="/find-a-roommate" component={SingleLineGridList}/>
       </Switch>
     </div>
     </MuiThemeProvider>

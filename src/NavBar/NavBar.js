@@ -25,7 +25,7 @@ export default function CenteredTabs() {
         value={value}
         onChange={handleChange}
         indicatorColor="primary"
-        textColor="primary"
+        textColor="secondary"
         centered
       >
         <Tab label="About" component={Link} to="/about"/>

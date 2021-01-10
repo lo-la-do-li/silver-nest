@@ -1,8 +1,14 @@
-const getAllResidents = () => {
+export const getAllResidents = () => {
   return (
   fetch('https://silver-nest.herokuapp.com/api/v1/residents')
   .then(data => data.json())
   )
 }
 
-export default getAllResidents;
+export const getResidentsBySemester = (semester) => {
+  const apiLink = 'https://silver-nest.herokuapp.com/api/v1/residents'
+  return (
+  fetch(`${apiLink}${semester}`)
+  .then(response => response.json())
+  )
+}

@@ -6,6 +6,10 @@
   height: 7vmin;
   pointer-events: none;
 }
+.Box-logo {
+  height: 60vmin;
+  pointer-events: none;
+}
 
 .App-header {
   background-color: #282c34;

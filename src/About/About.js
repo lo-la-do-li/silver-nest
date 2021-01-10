@@ -6,6 +6,8 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Button from '@material-ui/core/Button';
 import turingSHSLogo from '../geometric-heart-logo.png';
+import bothLogos from '../bothLogos.png';
+import mtnViewLogo from '../mtnViewLogo.png';
 import { Link } from 'react-router-dom';
 import { tileData } from '../assets/tileData.js';
 
@@ -24,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(2),
   },
    gridList: {
+     cellHeight: 160,
+     cols: 3 
+
     // width: 500,
     // height: 100%,
   },
@@ -46,6 +51,9 @@ const About = () => {
 
       </GridList>
        <div>
+        {/* <Box display="flex" justifyContent="space-around" padding={1}>
+           <img className="Box-logo" src={bothLogos} alt='Mountain View Residences Logo' /> 
+        </Box> */}
       <Box padding={7}>
         {/* <div style={{display: "flex", flexDirection: 'row', justifyContent: 'center'}}>
         <h1 style={{padding: "10", color:"#7c8181"}}>Silvernest</h1>

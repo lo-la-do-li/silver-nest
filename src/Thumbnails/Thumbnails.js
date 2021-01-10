@@ -29,57 +29,57 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const tileData = [
+// const residents = [
  
-  {
-    img: 'https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg',
-    title: 'Ralph',
-    author: 'author',
-   },
-   {
-    img: 'https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg',
-    title: 'Doris',
-    author: 'author',
-    },
-    {
-    img: 'https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg',
-    title: 'Ralph',
-    author: 'author',
-   },
-    {
-    img: 'https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg',
-    title: 'Doris',
-    author: 'author',
-    },
-   {
-    img: 'https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg',
-    title: 'Doris',
-    author: 'author',
-    },
-    {
-    img: 'https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg',
-    title: 'Ralph',
-    author: 'author',
-   },
- ];
+//   {
+//     img: 'https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg',
+//     title: 'Ralph',
+//     author: 'author',
+//    },
+//    {
+//     img: 'https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg',
+//     title: 'Doris',
+//     author: 'author',
+//     },
+//     {
+//     img: 'https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg',
+//     title: 'Ralph',
+//     author: 'author',
+//    },
+//     {
+//     img: 'https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg',
+//     title: 'Doris',
+//     author: 'author',
+//     },
+//    {
+//     img: 'https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg',
+//     title: 'Doris',
+//     author: 'author',
+//     },
+//     {
+//     img: 'https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg',
+//     title: 'Ralph',
+//     author: 'author',
+//    },
+//  ];
  
-export default function SingleLineGridList({semesterAvailable}) {
+export default function SingleLineGridList({availableResidents, semesterAvailable}) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
-        {tileData.map((tile) => (
-          <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
+        {availableResidents.map((resident) => (
+          <GridListTile key={resident.photo}>
+            <img src={resident.photo} alt={resident.name} />
             <GridListTileBar
-              title={semesterAvailable}
+              title={resident.name}
               classes={{
                 root: classes.titleBar,
                 title: classes.title,
               }}
               actionIcon={
-                <IconButton aria-label={`star ${tile.title}`}>
+                <IconButton aria-label={`star ${resident.name}`}>
                   {/* <StarBorderIcon className={classes.title} /> */}
                 </IconButton>
               }

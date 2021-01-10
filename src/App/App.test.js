@@ -7,16 +7,44 @@ import userEvent from '@testing-library/user-event';
 
 describe('App', () => {
   it.skip('It should display a header', () => {
-    
+    // setup and execution 
+    render(
+
+    )
+    //execution
+      
+    // assertions
+    expect(screen.getByText()).toBeInTheDocument()
   })
   it.skip('It should display a navBar', () => {
-    
+    // setup and execution 
+    render(
+
+    )
+    //execution
+      
+    // assertions
+    expect(screen.getByText()).toBeInTheDocument()
   })
   it.skip('It should display about details on load', () => {
-    
+    // setup and execution 
+    render(
+
+    )
+    //execution
+      
+    // assertions
+    expect(screen.getByText()).toBeInTheDocument()
   })
   it.skip('It should display FindARoommate component when Find A Roommate tab is clicked', () => {
-  
+    // setup and execution 
+    render(
+
+    )
+    //execution
+      
+    // assertions
+    expect(screen.getByText()).toBeInTheDocument()
   })
   //This testing file focuses more on integration testing
 })

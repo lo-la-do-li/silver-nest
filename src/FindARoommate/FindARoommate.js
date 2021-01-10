@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import getAllResidents from '../apiCalls';
+import {getAllResidents, getResidentsBySemester} from '../apiCalls';
 import ControlledOpenSelect from '../Form/Form';
 import SingleLineGridList from '../Thumbnails/Thumbnails'
 
@@ -20,6 +20,7 @@ export default function FindARoomate() {
 
   const selectSemester = (selectedSemester) => {
     setSemester(selectedSemester)
+    getResidentsBySemester(semester)
   }
   
   return(

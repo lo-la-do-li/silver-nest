@@ -3,6 +3,11 @@ import {getAllResidents, getResidentsBySemester} from '../apiCalls';
 import ControlledOpenSelect from '../Form/Form';
 import SingleLineGridList from '../Thumbnails/Thumbnails'
 import ResidentCard from '../Profile/Profile';
+import turingHeartLogo from '../turingHeartLogo.png';
+import mtnViewLogo from '../mtnViewLogo.png';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+
 export default function FindARoomate() {
   const [semester, setSemester] = useState('');
   const [residents, setResidents] = useState([]);
@@ -39,13 +44,14 @@ export default function FindARoomate() {
     console.log(resident)
   }
   return(
-    <div>
-      <div style={{paddingTop: 90, paddingBottom: 80}}>
+    <div style={{paddingTop: 50}}>
+        <img className="Box-logo" src={turingHeartLogo} alt='Mountain View Residences Logo' /> 
+      <div style={{paddingTop: 50, paddingBottom: 80}}>
       <h1 style={{color:"#7c8181"}}>Select a semester:</h1>
       <ControlledOpenSelect style={{marginTop:-20}} selectSemester={selectSemester}/>
       </div>
       <SingleLineGridList availableResidents={availableResidents} allResidents={residents} selectResident={selectResident} semesterAvailable={semester}/>
-      <ResidentCard resident={selectedResident} />
+      {selectedResident && <ResidentCard resident={selectedResident} />}
     </div>
   )
 }

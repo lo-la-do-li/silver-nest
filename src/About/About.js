@@ -4,63 +4,47 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
+import { tileData } from '../assets/tileData.js';
 
 const useStyles = makeStyles(theme => ({
   root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
-      backgroundColor: theme.palette.background.paper
+    display: 'flex',
+    // flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    // overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+    flexDirection: 'row',
+    paddingTop: 20
     },
   container: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
   },
-   gridList: {
-    width: 500,
-    height: 450,
+  box: {
+    paddingTop: 1,
+    padding: theme.spacing(7)
   },
-  }));
-
-const tileData = [
-  {
-    img: "https://ak.picdn.net/offset/photos/5f6d0e80a75ca0db370a31bc/medium/offset_1009282.jpg",
-    title: "image1",
-    cols: 1
+  gridList: {
+    cellHeight: 160,
+    cols: 3,
+    // width: 500,
+    // height: 100%,
   },
-   {
-    img: "https://c8.alamy.com/comp/BX103M/party-event-in-older-peoples-residential-retirement-community-BX103M.jpg",
-    title: "image2",
-    cols: 2
+  h1: {
+    textAlign: 'left', 
+    color:"#7c8181"
   },
-   {
-    img: "https://c8.alamy.com/comp/JAJ1TK/students-and-seniors-making-small-talk-in-workshop-break-JAJ1TK.jpg",
-    title: "image3",
-    cols: 2
-  },
-  {
-    img: "https://c8.alamy.com/comp/D51WWG/senior-klara-fuerst-78-and-student-sarah-boehm-20-cut-fruit-at-the-D51WWG.jpg",
-    title: "image4",
-    cols: 1
-  },
-  {
-    img: "https://www.theexaminernews.com/examiner-news/wp-content/uploads/2020/11/WPAssistedLiving-400x217.jpg",
-    title: "image5",
-    cols: 3
+  button: {
+    padding: 20
   }
-]
+  }));
 
 const About = () => {
   const classes = useStyles();
   return (
-     <div className={classes.root}>
-      <Box display="flex" flexDirection="column" alignItems="stretch" padding={4}>
-       Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living residence, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.
-       </Box>
-      {/* <Container maxWidth="lg" className={classes.container}>
-       Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living residence, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.
-       </Container> */}
+    <Container className={classes.root}>
       <GridList cellHeight={160} className={classes.gridList} cols={3}>
         {tileData.map((tile) => (
           <GridListTile key={tile.img} cols={tile.cols || 1}>
@@ -68,7 +52,15 @@ const About = () => {
           </GridListTile>
         ))}
       </GridList>
-    </div>
+      <div className={classes.container}>
+        <Box className={classes.box}>
+          <h1 className={classes.h1}>Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living resort, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.</h1>
+        </Box>
+        <Button className={classes.button} component={Link} to='/find-a-roommate' variant="outlined" color="secondary">
+            Find a Roommate
+        </Button> 
+      </div>
+    </Container>
   )
 }
 

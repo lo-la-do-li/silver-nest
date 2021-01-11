@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ControlledOpenSelect({selectSemester}) {
+export default function Form({selectSemester}) {
   const classes = useStyles();
   const [semester, setSemester] = React.useState('');
   const [open, setOpen] = React.useState(false);
@@ -20,7 +20,8 @@ export default function ControlledOpenSelect({selectSemester}) {
   const handleChange = (event) => {
     const selectedSemester = event.target.value;
     selectSemester(selectedSemester);
-    event.preventDefault();
+    setSemester(selectedSemester);
+    // event.preventDefault();
   };
 
   const handleClose = () => {
@@ -44,12 +45,12 @@ export default function ControlledOpenSelect({selectSemester}) {
           value={semester}
           onChange={handleChange}
         >
-          <MenuItem value="">
+          {/* <MenuItem value="">
             <em>None</em>
-          </MenuItem>
-          <MenuItem value='Spring 2021'>Spring 2021</MenuItem>
-          <MenuItem value='Summer 2021'>Summer 2021</MenuItem>
-          <MenuItem value='Fall 2021'>Fall 2021</MenuItem>
+          </MenuItem> */}
+          <MenuItem value='Spring-2021'>Spring 2021</MenuItem>
+          <MenuItem value='Summer-2021'>Summer 2021</MenuItem>
+          <MenuItem value='Fall-2021'>Fall 2021</MenuItem>
         </Select>
       </FormControl>
     </div>

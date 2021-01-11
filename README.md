@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# [Silver Nest](deployed project link here) *group project*
+# [Silver Nest Backend Server](https://github.com/chadrick-d-dev/silver-nest-api)
+## Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* [Project Overview](#project-overview)
+* [Goals](#goals)
+* [Technologies And Tools](#technologies-and-tools)
+* [Challenges](#challenges)
+* [Wins](#wins)
+* [Roadmap](#roadmap)
+* [Contributors](#contributors)
+## Project Overview
 
-## Available Scripts
+Description here
 
-In the project directory, you can run:
+## Goals
+* Add goals
+## Technologies And Tools
+> * React (With hooks)
+> * React Testing (with Jest)
+> * Router
+> * JavaScript
+> * JSX
+> * Material-ui
+> * Engineered Server and Deployed with:
+>   * Express
+>   * PostgreSQL
+>   * Knex
+>   * Heroku
+> * git
+> * GitHub
+> * Terminal
 
-### `npm start`
+<details>
+  <summary>Set up & Contributions</summary>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* *Click* the **Fork** button on the top right-hand corner of this page
+* Clone the repository down and cd into the repo on your local machine by running:
+  * `git clone git@github.com:cameronRomo/silver-nest.git`
+  * `cd silver-nest`
+* Install the library dependencies by running:
+  * `npm install`
+* To verify that it is setup correctly, run `npm start` in your terminal.
+* Go to `http://localhost:3000/` and you should see the site.
+* Enter `control + c` in your terminal to stop the server at any time.
+* Add your changes and push up to GitHub and submit a pull request
+</details>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Challenges
+* Add some challenges
 
-### `npm test`
+## Wins
+* Add some wins
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Roadmap
+* With more time, we would like to enhance the UI/UX by:
+## Project Managers:
 
-### `npm run build`
+#### Leta Keane
+#### Will Mitchell
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributors
+<img src="https://media-exp1.licdn.com/dms/image/C4E03AQG9jZTOd0oUCQ/profile-displayphoto-shrink_800_800/0/1606070086923?e=1616025600&v=beta&t=WldtPrGc57mSEiAJkFaYGVq9Ksc0uqBmFLFR11fQUs4" alt="Lola Dolinsky"
+ width="150" height="auto" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Lola Dolinsky](https://github.com/lo-la-do-li)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="https://avatars3.githubusercontent.com/u/12281987?s=400&u=74569b5cafa00cad0a6ac3418de2ff1b29aba11f&v=4" alt="Chadrick Dickerson"
+ width="150" height="auto" />
 
-### `npm run eject`
+- [Chadrick Dickerson](https://github.com/chadrick-d-dev)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src="https://user-images.githubusercontent.com/63012953/97791961-baa31f00-1b9d-11eb-90e6-e5e6ee578999.jpeg" alt="Cameron Romo"
+ width="150" height="auto" />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Cameron Romo](https://github.com/cameronRomo)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Honerable Mentions
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* [Nicole Gooden](https://github.com/nicolegooden)
+* [Steph Segura](https://github.com/Musiclove43)
+* Project Managers

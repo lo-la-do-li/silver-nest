@@ -6,7 +6,7 @@ import Tab from '@material-ui/core/Tab';
 import { Link } from 'react-router-dom';
 import turingSHSLogo from '../geometric-heart-logo.png';
 import Box from '@material-ui/core/Box';
-import silverNestLogo from '../silverNestLogo.png';
+import silverNestLogo from '../silverNestLogo3.png';
 
 const useStyles = makeStyles({
   root: {

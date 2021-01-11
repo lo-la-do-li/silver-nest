@@ -45,7 +45,7 @@ export default function FindARoomate() {
   }
   return(
     <div style={{paddingTop: 50}}>
-        <img className="Box-logo" src={turingHeartLogo} alt='Mountain View Residences Logo' /> 
+        {/* <img className="Box-logo" src={turingHeartLogo} alt='Mountain View Residences Logo' />  */}
       <div style={{paddingTop: 50, paddingBottom: 80}}>
       <h1 style={{color:"#7c8181"}}>Select a semester:</h1>
       <ControlledOpenSelect style={{marginTop:-20}} selectSemester={selectSemester}/>

@@ -67,7 +67,7 @@ const About = () => {
         </div> */}
        <h1 className={classes.h1}>Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living resort, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.</h1>
        </Box>
-       <Button className={classes.button} component={Link} to='/find-a-roommate' variant="outlined" color="primary">
+       <Button className={classes.button} component={Link} to='/find-a-roommate' variant="outlined" color="secondary">
           Find a Roommate
       </Button> 
        </div>

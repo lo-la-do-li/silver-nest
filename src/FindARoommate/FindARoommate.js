@@ -45,7 +45,7 @@ export default function FindARoomate() {
       <ControlledOpenSelect style={{marginTop:-20}} selectSemester={selectSemester}/>
       </div>
       <SingleLineGridList availableResidents={availableResidents} allResidents={residents} selectResident={selectResident} semesterAvailable={semester}/>
-      {/* <ResidentCard/> */}
+      <ResidentCard resident={selectedResident} />
     </div>
   )
 }

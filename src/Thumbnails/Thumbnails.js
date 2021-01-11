@@ -64,8 +64,8 @@ export default function SingleLineGridList({availableResidents, allResidents, se
     return (
       <div className={classes.root}>
         <GridList className={classes.gridList} cols={2.5}>
-          {allResidents.map((resident) => (
-            <GridListTile key={resident.id} value={resident.id} onClick={handleClick}>
+          {allResidents.map((resident, index) => (
+            <GridListTile key={index} value={resident.id} onClick={() => handleClick(resident)}>
               <img src={resident.photo} key={resident.id} id={resident.id} alt={resident.name} />
               <GridListTileBar
                 title={resident.name}

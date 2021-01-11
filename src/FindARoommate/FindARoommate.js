@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {getAllResidents, getResidentsBySemester} from '../apiCalls';
 import ControlledOpenSelect from '../Form/Form';
 import SingleLineGridList from '../Thumbnails/Thumbnails'
-
+import ResidentCard from '../Profile/Profile';
 export default function FindARoomate() {
   const [semester, setSemester] = useState('');
   const [residents, setResidents] = useState([]);
   const [availableResidents, setAvailableResidents] = useState([]);
-
+  const [selectedResident, setSelectedResident] = useState('');
 
   useEffect(() => {
     if (!availableResidents.length) {
@@ -34,13 +34,17 @@ export default function FindARoomate() {
     .catch(err => console.log(err))
   }
   
+  const selectResident = (resident) => {
+    setSelectedResident(resident)
+  }
   return(
     <div>
       <div style={{paddingTop: 90, paddingBottom: 80}}>
       <h1 style={{color:"#7c8181"}}>Select a semester:</h1>
       <ControlledOpenSelect style={{marginTop:-20}} selectSemester={selectSemester}/>
       </div>
-      <SingleLineGridList availableResidents={availableResidents} allResidents={residents} semesterAvailable={semester}/>
+      <SingleLineGridList availableResidents={availableResidents} allResidents={residents} selectResident={selectResident} semesterAvailable={semester}/>
+      {/* <ResidentCard/> */}
     </div>
   )
 }

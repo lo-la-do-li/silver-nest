@@ -4,8 +4,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
-
-// import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateZ(0)',
   },
   title: {
-    color: theme.palette.primary,
+    color: theme.palette.secondary,
   },
   titleBar: {
     background:
@@ -29,55 +28,60 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
  
-export default function SingleLineGridList({availableResidents, allResidents, semesterAvailable}) {
+export default function SingleLineGridList({availableResidents, allResidents, selectResident, semesterAvailable}) {
   const classes = useStyles();
-if (availableResidents.length) {
-  return (
-    <div className={classes.root}>
-      <GridList className={classes.gridList} cols={2.5}>
-        {availableResidents.map((resident) => (
-          <GridListTile key={resident.photo}>
-            <img src={resident.photo} alt={resident.name} />
-            <GridListTileBar
-              title={resident.name}
-              classes={{
-                root: classes.titleBar,
-                title: classes.title,
-              }}
-              actionIcon={
-                <IconButton aria-label={`star ${resident.name}`}>
-                  {/* <StarBorderIcon className={classes.title} /> */}
-                </IconButton>
-              }
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
-  );
-} else {
-  return (
-    <div className={classes.root}>
-      <GridList className={classes.gridList} cols={2.5}>
-        {allResidents.map((resident) => (
-          <GridListTile key={resident.photo}>
-            <img src={resident.photo} alt={resident.name} />
-            <GridListTileBar
-              title={resident.name}
-              classes={{
-                root: classes.titleBar,
-                title: classes.title,
-              }}
-              actionIcon={
-                <IconButton aria-label={`star ${resident.name}`}>
-                  {/* <StarBorderIcon className={classes.title} /> */}
-                </IconButton>
-              }
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
-  )
-}
+  const handleClick = (event) => { 
+    let clickedResident = event.target.value
+    console.log(clickedResident)
+    selectResident(clickedResident)
+  }
+  if (availableResidents.length) {
+    return (
+      <div className={classes.root}>
+        <GridList className={classes.gridList} cols={2.5}>
+          {availableResidents.map((resident) => (
+            <GridListTile key={resident.id} value={resident.id} onClick={handleClick}>
+              <img src={resident.photo} key={resident.id} id={resident.id} alt={resident.name} />
+              <GridListTileBar
+                title={resident.name}
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title,
+                }}
+                actionIcon={
+                  <IconButton aria-label={`star ${resident.name}`} >
+                    <StarBorderIcon className={classes.title}/>
+                  </IconButton>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+    );
+  } else {
+    return (
+      <div className={classes.root}>
+        <GridList className={classes.gridList} cols={2.5}>
+          {allResidents.map((resident) => (
+            <GridListTile key={resident.id} value={resident.id} onClick={handleClick}>
+              <img src={resident.photo} key={resident.id} id={resident.id} alt={resident.name} />
+              <GridListTileBar
+                title={resident.name}
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title,
+                }}
+                actionIcon={
+                  <IconButton aria-label={`star ${resident.name}`}>
+                    <StarBorderIcon className={classes.title} />
+                  </IconButton>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+    )
+  }
 }

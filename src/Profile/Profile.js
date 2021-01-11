@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ResidentCard(props) {
+export default function ResidentCard({resident}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 

@@ -16,6 +16,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ResidentCard({resident}) {
+function ResidentCard({resident}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -157,3 +158,9 @@ export default function ResidentCard({resident}) {
     </Card>
   );
 }
+
+ResidentCard.propTypes = {
+  resident: PropTypes.object
+}
+
+export default ResidentCard;

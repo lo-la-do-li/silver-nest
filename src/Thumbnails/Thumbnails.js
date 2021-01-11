@@ -6,6 +6,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
+import PropTypes from 'prop-types';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,12 +35,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
  
-export default function Thumbnails({availableResidents, allResidents, selectResident, semesterAvailable}) {
+function Thumbnails({availableResidents, allResidents, selectResident, semesterAvailable}) {
   const classes = useStyles();
  
-  const handleClick = (resident) => { 
-    // let clickedResident = event.target.value
-    console.log(resident)
+  const handleClick = (resident) => {
     selectResident(resident)
   }
   if (availableResidents.length) {
@@ -47,8 +46,8 @@ export default function Thumbnails({availableResidents, allResidents, selectResi
       <div className={classes.root}>
         <GridList className={classes.gridList} cols={2.5}>
           {availableResidents.map((resident, index) => (
-            <GridListTile key={index} value={resident.id} onClick={() => handleClick(resident)}>
-              <img src={resident.photo} key={resident.id} id={resident.id} alt={resident.name} />
+            <GridListTile key={index} onClick={() => handleClick(resident)}>
+              <img src={resident.photo} id={resident.id} alt={resident.name} />
               <GridListTileBar
                 title={resident.name}
                 classes={{
@@ -71,8 +70,8 @@ export default function Thumbnails({availableResidents, allResidents, selectResi
       <div className={classes.root}>
         <GridList className={classes.gridList} cols={2.5}>
           {allResidents.map((resident, index) => (
-            <GridListTile key={index} value={resident.id} onClick={() => handleClick(resident)}>
-              <img src={resident.photo} key={resident.id} id={resident.id} alt={resident.name} />
+            <GridListTile key={index} onClick={() => handleClick(resident)}>
+              <img src={resident.photo} id={resident.id} alt={resident.name} />
               <GridListTileBar
                 title={resident.name}
                 classes={{
@@ -92,3 +91,12 @@ export default function Thumbnails({availableResidents, allResidents, selectResi
     )
   }
 }
+
+Thumbnails.propTypes = {
+  availableResidents: PropTypes.array,
+  allResidents: PropTypes.array, 
+  selectResident: PropTypes.object,
+  semesterAvailable: PropTypes.string,
+}
+
+export default Thumbnails;

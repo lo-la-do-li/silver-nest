@@ -5,6 +5,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import AccountBoxIcon from '@material-ui/icons/AccountBox'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.secondary,
     fontSize: 24,
+  },
+  icon: {
+    color: '#00acc1',
+    backgroundColor: 'white'
   },
   titleBar: {
     background:
@@ -52,7 +57,7 @@ export default function Thumbnails({availableResidents, allResidents, selectResi
                 }}
                 actionIcon={
                   <IconButton aria-label={`star ${resident.name}`} >
-                    <StarBorderIcon className={classes.title}/>
+                    <AccountBoxIcon className={classes.title}/>
                   </IconButton>
                 }
               />
@@ -76,7 +81,7 @@ export default function Thumbnails({availableResidents, allResidents, selectResi
                 }}
                 actionIcon={
                   <IconButton aria-label={`star ${resident.name}`}>
-                    <StarBorderIcon className={classes.title} />
+                    <AccountBoxIcon className={classes.icon} />
                   </IconButton>
                 }
               />

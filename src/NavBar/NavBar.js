@@ -4,7 +4,6 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { Link } from 'react-router-dom';
-// import turingSHSLogo from '../geometric-heart-logo.png';
 import Box from '@material-ui/core/Box';
 import silverNestLogo from '../silverNestLogo3.png';
 
@@ -14,14 +13,15 @@ const useStyles = makeStyles({
     justifyContent: 'space-between',
     flexGrow: 1,
   },
-  tabText: {
-    backgroundColor: "black"
-  },
   box: {
     display: "flex", 
     flexDirection: 'row', 
     justifyContent: 'center', 
-    paddingRight: 40
+    paddingRight: 30,
+  },
+  logo: {
+    paddingTop: 10,
+    height: 38
   }
 });
 
@@ -36,7 +36,6 @@ export default function CenteredTabs({theme}) {
   return (
     <Paper className={classes.root}>
       <Tabs
-        // className={classes.tabText}
         value={value}
         onChange={handleChange}
         indicatorColor="secondary"
@@ -47,8 +46,7 @@ export default function CenteredTabs({theme}) {
         <Tab label="Find A Roommate" component={Link} to="/find-a-roommate"/>
       </Tabs>
         <Box className={classes.box}>
-        {/* <h3 style={{padding: "10", color:"#7c8181"}}>Silvernest</h3> */}
-        <img className="App-logo" src={silverNestLogo} alt='Turing School of Health Sciences Logo'/>
+          <img className={classes.logo} src={silverNestLogo} alt='Turing School of Health Sciences Logo'/>
         </Box>
     </Paper>
   );

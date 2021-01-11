@@ -8,7 +8,6 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles({
-
   form: {
     marginTop:-20
   },
@@ -60,13 +59,13 @@ export default function FindARoomate() {
   }
 
   return(
-    <div>
+    <Container>
       <Box className={classes.box}>
       <h1 className={classes.text}>Select a semester:</h1>
       <Form className={classes.form} selectSemester={selectSemester}/>
       </Box>
       <Thumbnails availableResidents={availableResidents} allResidents={residents} selectResident={selectResident} semesterAvailable={semester}/>
       {selectedResident && <ResidentCard resident={selectedResident} />}
-    </div>
+    </Container>
   )
 }

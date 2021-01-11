@@ -59,7 +59,7 @@ function Form({selectSemester}) {
 }
 
 Form.propTypes = {
-  selectSemester: PropTypes.string
+  selectSemester: PropTypes.func
 }
 
 export default Form;

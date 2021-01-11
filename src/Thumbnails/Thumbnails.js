@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
  
-export default function SingleLineGridList({availableResidents, semesterAvailable}) {
+export default function SingleLineGridList({availableResidents, allResidents, semesterAvailable}) {
   const classes = useStyles();
-
+if (availableResidents.length) {
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
@@ -55,4 +55,29 @@ export default function SingleLineGridList({availableResidents, semesterAvailabl
       </GridList>
     </div>
   );
+} else {
+  return (
+    <div className={classes.root}>
+      <GridList className={classes.gridList} cols={2.5}>
+        {allResidents.map((resident) => (
+          <GridListTile key={resident.photo}>
+            <img src={resident.photo} alt={resident.name} />
+            <GridListTileBar
+              title={resident.name}
+              classes={{
+                root: classes.titleBar,
+                title: classes.title,
+              }}
+              actionIcon={
+                <IconButton aria-label={`star ${resident.name}`}>
+                  {/* <StarBorderIcon className={classes.title} /> */}
+                </IconButton>
+              }
+            />
+          </GridListTile>
+        ))}
+      </GridList>
+    </div>
+  )
+}
 }

@@ -6,21 +6,32 @@ import SingleLineGridList from '../Thumbnails/Thumbnails'
 export default function FindARoomate() {
   const [semester, setSemester] = useState('');
   const [residents, setResidents] = useState([]);
+  const [availableResidents, setAvailableResidents] = useState([]);
+
 
   useEffect(() => {
-    getResidents();
+    if (!availableResidents.length) {
+      getResidents();
+    } else {
+      getAvailableResidents(semester);
+    }
   }, [])
 
   const getResidents = async () => {
     await getAllResidents()
     .then(data => setResidents(data))
     .catch(err => console.log(err))
-    console.log(residents)
   }
 
   const selectSemester = (selectedSemester) => {
     setSemester(selectedSemester)
-    getResidentsBySemester(semester)
+    getAvailableResidents(semester)
+  }
+
+  const getAvailableResidents = async (semester) => {
+    await getResidentsBySemester(semester)
+    .then(data => setAvailableResidents(data))
+    .catch(err => console.log(err))
   }
   
   return(
@@ -29,7 +40,7 @@ export default function FindARoomate() {
       <h1 style={{color:"#7c8181"}}>Select a semester:</h1>
       <ControlledOpenSelect style={{marginTop:-20}} selectSemester={selectSemester}/>
       </div>
-      <SingleLineGridList availableResidents={residents} semesterAvailable={semester}/>
+      <SingleLineGridList availableResidents={availableResidents} allResidents={residents} semesterAvailable={semester}/>
     </div>
   )
 }

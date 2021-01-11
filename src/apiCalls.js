@@ -6,9 +6,9 @@ export const getAllResidents = () => {
 }
 
 export const getResidentsBySemester = (semester) => {
-  const apiLink = 'https://silver-nest.herokuapp.com/api/v1/residents'
+  // const apiLink = 'https://silver-nest.herokuapp.com/api/v1/residents'
   return (
-  fetch(`${apiLink}${semester}`)
+  fetch(`https://silver-nest.herokuapp.com/api/v1/residents/${semester}`)
   .then(response => response.json())
   )
 }

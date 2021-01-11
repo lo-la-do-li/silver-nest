@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { Link } from 'react-router-dom';
-import turingSHSLogo from '../geometric-heart-logo.png';
+// import turingSHSLogo from '../geometric-heart-logo.png';
 import Box from '@material-ui/core/Box';
 import silverNestLogo from '../silverNestLogo3.png';
 

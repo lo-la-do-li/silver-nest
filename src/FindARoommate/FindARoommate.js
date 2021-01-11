@@ -1,14 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import {getAllResidents, getResidentsBySemester} from '../apiCalls';
-import ControlledOpenSelect from '../Form/Form';
-import SingleLineGridList from '../Thumbnails/Thumbnails'
+import Form from '../Form/Form';
+import Thumbnails from '../Thumbnails/Thumbnails'
 import ResidentCard from '../Profile/Profile';
-import turingHeartLogo from '../turingHeartLogo.png';
-import mtnViewLogo from '../mtnViewLogo.png';
+import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 
+const useStyles = makeStyles({
+
+  form: {
+    marginTop:-20
+  },
+  text: {
+    color: "#7c8181"
+  },
+  box: {
+    paddingTop: 50, 
+    paddingBottom: 80
+  }
+});
+
 export default function FindARoomate() {
+  const classes = useStyles();
+
   const [semester, setSemester] = useState('');
   const [residents, setResidents] = useState([]);
   const [availableResidents, setAvailableResidents] = useState([]);
@@ -43,14 +58,14 @@ export default function FindARoomate() {
     setSelectedResident(resident)
     console.log(resident)
   }
+
   return(
-    <div style={{paddingTop: 50}}>
-        {/* <img className="Box-logo" src={turingHeartLogo} alt='Mountain View Residences Logo' />  */}
-      <div style={{paddingTop: 50, paddingBottom: 80}}>
-      <h1 style={{color:"#7c8181"}}>Select a semester:</h1>
-      <ControlledOpenSelect style={{marginTop:-20}} selectSemester={selectSemester}/>
-      </div>
-      <SingleLineGridList availableResidents={availableResidents} allResidents={residents} selectResident={selectResident} semesterAvailable={semester}/>
+    <div>
+      <Box className={classes.box}>
+      <h1 className={classes.text}>Select a semester:</h1>
+      <Form className={classes.form} selectSemester={selectSemester}/>
+      </Box>
+      <Thumbnails availableResidents={availableResidents} allResidents={residents} selectResident={selectResident} semesterAvailable={semester}/>
       {selectedResident && <ResidentCard resident={selectedResident} />}
     </div>
   )

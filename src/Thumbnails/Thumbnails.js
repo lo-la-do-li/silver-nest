@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
  
-export default function SingleLineGridList({availableResidents, allResidents, selectResident, semesterAvailable}) {
+export default function Thumbnails({availableResidents, allResidents, selectResident, semesterAvailable}) {
   const classes = useStyles();
  
   const handleClick = (resident) => { 

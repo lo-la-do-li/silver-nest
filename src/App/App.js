@@ -5,9 +5,9 @@ import NavBar from '../NavBar/NavBar';
 import About from '../About/About';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
-import SingleLineGridList from '../Thumbnails/Thumbnails'
+import Thumbnails from '../Thumbnails/Thumbnails'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import turingSHSLogo from '../geometric-heart-logo.png'
+// import turingSHSLogo from '../geometric-heart-logo.png'
 
 const theme = createMuiTheme({
   palette: {

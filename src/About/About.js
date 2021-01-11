@@ -5,9 +5,8 @@ import Container from '@material-ui/core/Container';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Button from '@material-ui/core/Button';
-import turingSHSLogo from '../geometric-heart-logo.png';
-import bothLogos from '../bothLogos.png';
-import mtnViewLogo from '../mtnViewLogo.png';
+// import bothLogos from '../bothLogos.png';
+// import mtnViewLogo from '../mtnViewLogo.png';
 import { Link } from 'react-router-dom';
 import { tileData } from '../assets/tileData.js';
 

@@ -66,7 +66,7 @@ export default function ResidentCard({resident}) {
       <CardMedia
         className={classes.media}
         image={resident.photo}
-        title={`${resident.name}\'s Photo`}
+        title={`${resident.name}'s Photo`}
       />
 
       <CardContent>

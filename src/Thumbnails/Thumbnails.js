@@ -30,17 +30,18 @@ const useStyles = makeStyles((theme) => ({
  
 export default function SingleLineGridList({availableResidents, allResidents, selectResident, semesterAvailable}) {
   const classes = useStyles();
-  const handleClick = (event) => { 
-    let clickedResident = event.target.value
-    console.log(clickedResident)
-    selectResident(clickedResident)
+ 
+  const handleClick = (resident) => { 
+    // let clickedResident = event.target.value
+    console.log(resident)
+    selectResident(resident)
   }
   if (availableResidents.length) {
     return (
       <div className={classes.root}>
         <GridList className={classes.gridList} cols={2.5}>
-          {availableResidents.map((resident) => (
-            <GridListTile key={resident.id} value={resident.id} onClick={handleClick}>
+          {availableResidents.map((resident, index) => (
+            <GridListTile key={index} value={resident.id} onClick={() => handleClick(resident)}>
               <img src={resident.photo} key={resident.id} id={resident.id} alt={resident.name} />
               <GridListTileBar
                 title={resident.name}

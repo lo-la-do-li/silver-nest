@@ -36,6 +36,7 @@ export default function FindARoomate() {
   
   const selectResident = (resident) => {
     setSelectedResident(resident)
+    console.log(resident)
   }
   return(
     <div>

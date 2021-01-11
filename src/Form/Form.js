@@ -20,6 +20,7 @@ export default function ControlledOpenSelect({selectSemester}) {
   const handleChange = (event) => {
     const selectedSemester = event.target.value;
     selectSemester(selectedSemester);
+    setSemester(selectedSemester);
     // event.preventDefault();
   };
 

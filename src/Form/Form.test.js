@@ -4,7 +4,6 @@ import Form from './Form';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
-import { createMemoryHistory } from "history";
 
 describe('Form', () => {
   it('It should display a form', () => {
@@ -24,7 +23,6 @@ describe('Form', () => {
 
   it('It should display a form', async () => {
     const mockSelectedSemester = jest.fn()
-    const history = createMemoryHistory()
     
     render(
       <MemoryRouter>

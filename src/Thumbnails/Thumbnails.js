@@ -42,7 +42,7 @@ function Thumbnails({availableResidents, allResidents, selectResident, semesterA
     selectResident(resident)
   }
   
-  if (availableResidents.length) {
+  // if (availableResidents.length) {
     return (
       <div className={classes.root}>
         <GridList className={classes.gridList} cols={2.5}>
@@ -66,31 +66,31 @@ function Thumbnails({availableResidents, allResidents, selectResident, semesterA
         </GridList>
       </div>
     );
-  } else {
-    return (
-      <div className={classes.root}>
-        <GridList className={classes.gridList} cols={2.5}>
-          {allResidents.map((resident, index) => (
-            <GridListTile key={index} onClick={() => handleClick(resident)}>
-              <img src={resident.photo} id={resident.id} alt={resident.name} />
-              <GridListTileBar
-                title={resident.name}
-                classes={{
-                  root: classes.titleBar,
-                  title: classes.title,
-                }}
-                actionIcon={
-                  <IconButton aria-label={`star ${resident.name}`}>
-                    <AccountBoxIcon className={classes.icon} />
-                  </IconButton>
-                }
-              />
-            </GridListTile>
-          ))}
-        </GridList>
-      </div>
-    )
-  }
+  // } else {
+  //   return (
+  //     <div className={classes.root}>
+  //       <GridList className={classes.gridList} cols={2.5}>
+  //         {allResidents.map((resident, index) => (
+  //           <GridListTile key={index} onClick={() => handleClick(resident)}>
+  //             <img src={resident.photo} id={resident.id} alt={resident.name} />
+  //             <GridListTileBar
+  //               title={resident.name}
+  //               classes={{
+  //                 root: classes.titleBar,
+  //                 title: classes.title,
+  //               }}
+  //               actionIcon={
+  //                 <IconButton aria-label={`star ${resident.name}`}>
+  //                   <AccountBoxIcon className={classes.icon} />
+  //                 </IconButton>
+  //               }
+  //             />
+  //           </GridListTile>
+  //         ))}
+  //       </GridList>
+  //     </div>
+  //   )
+  // }
 }
 
 Thumbnails.propTypes = {

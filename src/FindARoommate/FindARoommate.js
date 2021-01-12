@@ -6,6 +6,7 @@ import ResidentCard from '../Profile/Profile';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
+import { HelpOutline } from '@material-ui/icons';
 
 const useStyles = makeStyles({
   root: {
@@ -35,22 +36,25 @@ export default function FindARoomate() {
   const [profile, setProfile] = useState(false);
 
   useEffect(() => {
-    if (!availableResidents.length) {
-      getResidents();
-    } else {
-      getAvailableResidents(semester);
-    }
-  }, [])
+    // if (!availableResidents.length) {
+      // getResidents();
+    // } 
+    // else {
+      // getAvailableResidents(semester);
+    // }
+    // getAvailableResidents(semester)
+  }, [semester, availableResidents])
 
-  const getResidents = async () => {
-    await getAllResidents()
-    .then(data => setAllResidents(data))
-    .catch(err => console.log(err))
-  }
+  // const getResidents = async () => {
+  //   await getAllResidents()
+  //   .then(data => setAllResidents(data))
+  //   .catch(err => console.log(err))
+  // }
 
   const selectSemester = (selectedSemester) => {
+    console.log(selectedSemester)
     setSemester(selectedSemester)
-    getAvailableResidents(semester)
+    getAvailableResidents(selectedSemester)
   }
 
   const getAvailableResidents = async (semester) => {
@@ -62,34 +66,35 @@ export default function FindARoomate() {
   const selectResident = (resident) => {
     setProfile(true)
     setSelectedResident(resident)
-    console.log(resident)
   }
 
   const exitProfileView = (noResident) => {
-    setProfile(true)
+    setProfile(false)
     setSelectedResident(noResident)
-    window.location.reload();
+
   }
 
   return (
     <Container className={classes.root}>
+      {!profile?
+      <>
       <Box className={classes.box}>
         <h1 className={classes.text}>Select a semester:</h1>
         <Form className={classes.form} selectSemester={selectSemester} />
       </Box>
-      {!profile && (
+      
         <Thumbnails
           availableResidents={availableResidents}
-          allResidents={allResidents}
+          // allResidents={allResidents}
           selectResident={selectResident}
           semesterAvailable={semester}
         />
-      )}
-      {profile && (
+        </>
+      :
         <ResidentCard 
           resident={selectedResident} 
           exitProfileView={exitProfileView} />
-      )}
+      }
     </Container>
   );
 }

@@ -21,7 +21,8 @@ import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    // maxWidth: 345,
+    marginTop: 60
   },
   media: {
     height: 0,

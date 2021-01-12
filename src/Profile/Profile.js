@@ -122,10 +122,10 @@ function ResidentCard({resident, exitProfileView}) {
         </Typography>    
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="liked, application in process">
           <FavoriteIcon />
         </IconButton>
-        <Button className={classes.button} variant="outlined" color="secondary">
+        <Button variant="outlined" color="secondary" aria-label="apply for housing">
               Apply for Housing
         </Button>
         {/* <IconButton aria-label="share">

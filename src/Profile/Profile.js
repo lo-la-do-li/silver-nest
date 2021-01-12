@@ -10,15 +10,18 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { blue } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import PropTypes from 'prop-types';
+import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    // maxWidth: 345,
+    marginTop: 60
   },
   media: {
     height: 0,
@@ -34,18 +37,29 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  cardText: {
+    align: 'left',
+    variant: "h6",
+    color: "textSecondary"
+  },
   avatar: {
-    backgroundColor: blue[500],
+    backgroundColor: '#00acc1',
   },
 }));
 
-export default function ResidentCard({resident}) {
+function ResidentCard({resident, exitProfileView}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  // const [close, setClose] = React.useState(false)
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const handleCloseClick = () => {
+    let noResident = '';
+    exitProfileView(noResident);
+  }
 
   return (
     <Card className={classes.root}>
@@ -56,8 +70,8 @@ export default function ResidentCard({resident}) {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+          <IconButton aria-label="cancel" onClick={() => {handleCloseClick()}}>
+            <CancelPresentationIcon />
           </IconButton>
         }
         title={resident.name}
@@ -74,52 +88,49 @@ export default function ResidentCard({resident}) {
           Age:
         </Typography>
         <Typography paragraph>
-          {`${resident.age}`}
-        </Typography>
+         {`${resident.age}`}
+        </Typography >
         <Typography variant="h6" color="textSecondary" gutterBottom>
-          Height:
+          Interests:
         </Typography>
         <Typography paragraph>
-          {`${resident.height}`}
+          {`${resident.interests}`}
         </Typography>
         <Typography variant="h6" color="textSecondary" gutterBottom>
-          Weight:
+          Previous Career:
         </Typography>
         <Typography paragraph>
-          {`${resident.weight}`}
+          {`${resident.previous_career}`}
         </Typography>
         <Typography variant="h6" color="textSecondary" gutterBottom>
-          PCP:
+          Pets:
         </Typography>
         <Typography paragraph>
-          {`${resident.pcp}`}
-        </Typography>
+          {`${resident.pets}`}
+        </Typography>      
         <Typography variant="h6" color="textSecondary" gutterBottom>
-          Ambulatory:
-        </Typography>
+          Living Preferences:
+        </Typography>      
         <Typography paragraph>
-          {`${resident.ambulatory}`}
-        </Typography>
+          {`${resident.living_preferences}`}
+        </Typography>     
         <Typography variant="h6" color="textSecondary" gutterBottom>
-          Help With Medications:
-        </Typography>
+          Additional Notes:
+        </Typography>      
         <Typography paragraph>
-          {`${resident.help_with_medications}`}
-        </Typography>
-        <Typography variant="h6" color="textSecondary" gutterBottom>
-          Other Impairments:
-        </Typography>
-        <Typography paragraph>
-          {`${resident.other_impairments}`}
-        </Typography>
+          {`${resident.additional_notes}`}
+        </Typography>    
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="liked, application in process">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
+        <Button variant="outlined" color="secondary" aria-label="apply for housing">
+              Apply for Housing
+        </Button>
+        {/* <IconButton aria-label="share">
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -133,26 +144,32 @@ export default function ResidentCard({resident}) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
-            Previous Career:
+          <Typography align='left' variant="h6" color="textSecondary">
+            Height: {`${resident.height}`}
           </Typography>
-          <Typography paragraph>
-            {`${resident.previous_career}`}
+          <Typography align='left' variant="h6" color="textSecondary">
+            Weight: {`${resident.weight}`}
+          </Typography> 
+          <Typography align='left' variant="h6" color="textSecondary">
+            PCP: {`${resident.pcp}`}
           </Typography>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
-            Interests:
+          <Typography align='left' variant="h6" color="textSecondary">
+            Ambulatory: {`${resident.ambulatory}`}
           </Typography>
-          <Typography paragraph>
-            {`${resident.interests}`}
+          <Typography align='left' variant="h6" color="textSecondary">
+            Help With Medications: {`${resident.help_with_medications}`}
           </Typography>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
-            Pets:
-          </Typography>
-          <Typography paragraph>
-            {`${resident.pets}`}
+          <Typography align='left' variant="h6" color="textSecondary">
+            Other Impairments:{`${resident.other_impairments}`}
           </Typography>
         </CardContent>
       </Collapse>
     </Card>
   );
 }
+
+ResidentCard.propTypes = {
+  resident: PropTypes.object
+}
+
+export default ResidentCard;

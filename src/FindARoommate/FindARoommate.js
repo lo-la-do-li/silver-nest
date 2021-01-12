@@ -6,8 +6,14 @@ import ResidentCard from '../Profile/Profile';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
+import { HelpOutline } from '@material-ui/icons';
 
 const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
   form: {
     marginTop:-20
   },
@@ -24,27 +30,24 @@ export default function FindARoomate() {
   const classes = useStyles();
 
   const [semester, setSemester] = useState('');
-  const [residents, setResidents] = useState([]);
+  const [allResidents, setAllResidents] = useState([]);
   const [availableResidents, setAvailableResidents] = useState([]);
   const [selectedResident, setSelectedResident] = useState('');
+  const [profile, setProfile] = useState(false);
 
   useEffect(() => {
-    if (!availableResidents.length) {
-      getResidents();
-    } else {
-      getAvailableResidents(semester);
-    }
-  }, [])
+  
+  }, [semester, availableResidents])
 
-  const getResidents = async () => {
-    await getAllResidents()
-    .then(data => setResidents(data))
-    .catch(err => console.log(err))
-  }
+  // const getResidents = async () => {
+  //   await getAllResidents()
+  //   .then(data => setAllResidents(data))
+  //   .catch(err => console.log(err))
+  // }
 
   const selectSemester = (selectedSemester) => {
     setSemester(selectedSemester)
-    getAvailableResidents(semester)
+    getAvailableResidents(selectedSemester)
   }
 
   const getAvailableResidents = async (semester) => {
@@ -54,18 +57,37 @@ export default function FindARoomate() {
   }
   
   const selectResident = (resident) => {
+    setProfile(true)
     setSelectedResident(resident)
-    console.log(resident)
   }
 
-  return(
-    <Container>
+  const exitProfileView = (noResident) => {
+    setProfile(false)
+    setSelectedResident(noResident)
+
+  }
+
+  return (
+    <Container className={classes.root}>
+      {!profile?
+      <>
       <Box className={classes.box}>
-      <h1 className={classes.text}>Select a semester:</h1>
-      <Form className={classes.form} selectSemester={selectSemester}/>
+        <h1 className={classes.text}>Select a semester:</h1>
+        <Form className={classes.form} selectSemester={selectSemester} />
       </Box>
-      <Thumbnails availableResidents={availableResidents} allResidents={residents} selectResident={selectResident} semesterAvailable={semester}/>
-      {selectedResident && <ResidentCard resident={selectedResident} />}
+      
+        <Thumbnails
+          availableResidents={availableResidents}
+          // allResidents={allResidents}
+          selectResident={selectResident}
+          semesterAvailable={semester}
+        />
+        </>
+      :
+        <ResidentCard 
+          resident={selectedResident} 
+          exitProfileView={exitProfileView} />
+      }
     </Container>
-  )
+  );
 }

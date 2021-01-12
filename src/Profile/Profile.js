@@ -17,6 +17,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PropTypes from 'prop-types';
+import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,13 +47,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ResidentCard({resident}) {
+function ResidentCard({resident, exitProfileView}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  // const [close, setClose] = React.useState(false)
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const handleCloseClick = () => {
+    let noResident = '';
+    exitProfileView(noResident);
+  }
 
   return (
     <Card className={classes.root}>
@@ -63,8 +70,8 @@ function ResidentCard({resident}) {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+          <IconButton aria-label="cancel" onClick={() => {handleCloseClick()}}>
+            <CancelPresentationIcon />
           </IconButton>
         }
         title={resident.name}

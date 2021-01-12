@@ -41,6 +41,7 @@ function Thumbnails({availableResidents, allResidents, selectResident, semesterA
   const handleClick = (resident) => {
     selectResident(resident)
   }
+  
   if (availableResidents.length) {
     return (
       <div className={classes.root}>

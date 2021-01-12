@@ -10,14 +10,13 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { blue } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PropTypes from 'prop-types';
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -126,9 +125,12 @@ function ResidentCard({resident, exitProfileView}) {
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
+        <Button className={classes.button} variant="outlined" color="secondary">
+              Apply for Housing
+        </Button>
+        {/* <IconButton aria-label="share">
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,

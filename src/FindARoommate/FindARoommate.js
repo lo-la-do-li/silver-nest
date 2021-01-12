@@ -36,13 +36,7 @@ export default function FindARoomate() {
   const [profile, setProfile] = useState(false);
 
   useEffect(() => {
-    // if (!availableResidents.length) {
-      // getResidents();
-    // } 
-    // else {
-      // getAvailableResidents(semester);
-    // }
-    // getAvailableResidents(semester)
+  
   }, [semester, availableResidents])
 
   // const getResidents = async () => {
@@ -52,7 +46,6 @@ export default function FindARoomate() {
   // }
 
   const selectSemester = (selectedSemester) => {
-    console.log(selectedSemester)
     setSemester(selectedSemester)
     getAvailableResidents(selectedSemester)
   }

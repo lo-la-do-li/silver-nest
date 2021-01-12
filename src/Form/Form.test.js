@@ -18,7 +18,7 @@ describe('Form', () => {
     )
 
     const formText = screen.getByText('Choose a semester')
-    // assertions
+   
     expect(formText).toBeInTheDocument()
   })
 

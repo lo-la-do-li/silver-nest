@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function NavBar() {
+const NavBar = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -51,3 +51,5 @@ export default function NavBar() {
     </Paper>
   );
 }
+
+export default NavBar;

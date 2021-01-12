@@ -36,10 +36,10 @@ function Form({selectSemester}) {
   return (
     <div>
       <FormControl className={classes.formControl} semester={semester}>
-        <InputLabel id="demo-controlled-open-select-label">Choose a semester</InputLabel>
+        <InputLabel id="dropdown-menu">Choose a semester</InputLabel>
         <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
+          labelId="dropdown-menu"
+          id="semester-dropdown"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}

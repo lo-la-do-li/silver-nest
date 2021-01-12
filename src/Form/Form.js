@@ -22,7 +22,6 @@ function Form({selectSemester}) {
     const selectedSemester = event.target.value;
     selectSemester(selectedSemester);
     setSemester(selectedSemester);
-    // event.preventDefault();
   };
 
   const handleClose = () => {

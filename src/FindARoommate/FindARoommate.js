@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {getAllResidents, getResidentsBySemester} from '../apiCalls';
+import {getAllResidents, getResidentsBySemester, patchResidentAvailability} from '../apiCalls';
 import Form from '../Form/Form';
 import Thumbnails from '../Thumbnails/Thumbnails'
 import ResidentCard from '../Profile/Profile';
@@ -56,6 +56,11 @@ export default function FindARoomate() {
   const selectResident = (resident) => {
     setSelectedResident(resident)
     console.log(resident)
+  }
+
+  const submitApplication = async (id, semester) => {
+    await patchResidentAvailability(id, semester)
+    .then(data)
   }
 
   return(

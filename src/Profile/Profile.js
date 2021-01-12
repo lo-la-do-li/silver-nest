@@ -106,7 +106,13 @@ function ResidentCard({resident}) {
         </Typography>      
         <Typography paragraph>
           {`${resident.living_preferences}`}
+        </Typography>     
+        <Typography variant="h6" color="textSecondary" gutterBottom>
+          Additional Notes:
         </Typography>      
+        <Typography paragraph>
+          {`${resident.additional_notes}`}
+        </Typography>    
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">

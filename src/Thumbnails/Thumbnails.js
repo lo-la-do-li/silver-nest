@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
+    cursor: 'grab'
   },
   gridList: {
     flexWrap: 'nowrap',
@@ -57,7 +58,7 @@ function Thumbnails({availableResidents, allResidents, selectResident, semesterA
                 }}
                 actionIcon={
                   <IconButton aria-label={`star ${resident.name}`} >
-                    <AccountBoxIcon className={classes.title}/>
+                    <AccountBoxIcon className={classes.icon}/>
                   </IconButton>
                 }
               />

@@ -36,6 +36,11 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  cardText: {
+    align: 'left',
+    variant: "h6",
+    color: "textSecondary"
+  },
   avatar: {
     backgroundColor: '#00acc1',
   },
@@ -76,44 +81,32 @@ function ResidentCard({resident}) {
           Age:
         </Typography>
         <Typography paragraph>
-          {`${resident.age}`}
-        </Typography>
+         {`${resident.age}`}
+        </Typography >
         <Typography variant="h6" color="textSecondary" gutterBottom>
-          Height:
+          Interests:
         </Typography>
         <Typography paragraph>
-          {`${resident.height}`}
+          {`${resident.interests}`}
         </Typography>
         <Typography variant="h6" color="textSecondary" gutterBottom>
-          Weight:
+          Previous Career:
         </Typography>
         <Typography paragraph>
-          {`${resident.weight}`}
+          {`${resident.previous_career}`}
         </Typography>
         <Typography variant="h6" color="textSecondary" gutterBottom>
-          PCP:
+          Pets:
         </Typography>
         <Typography paragraph>
-          {`${resident.pcp}`}
-        </Typography>
+          {`${resident.pets}`}
+        </Typography>      
         <Typography variant="h6" color="textSecondary" gutterBottom>
-          Ambulatory:
-        </Typography>
+          Living Preferences:
+        </Typography>      
         <Typography paragraph>
-          {`${resident.ambulatory}`}
-        </Typography>
-        <Typography variant="h6" color="textSecondary" gutterBottom>
-          Help With Medications:
-        </Typography>
-        <Typography paragraph>
-          {`${resident.help_with_medications}`}
-        </Typography>
-        <Typography variant="h6" color="textSecondary" gutterBottom>
-          Other Impairments:
-        </Typography>
-        <Typography paragraph>
-          {`${resident.other_impairments}`}
-        </Typography>
+          {`${resident.living_preferences}`}
+        </Typography>      
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
@@ -135,23 +128,23 @@ function ResidentCard({resident}) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
-            Previous Career:
+          <Typography align='left' variant="h6" color="textSecondary">
+            Height: {`${resident.height}`}
           </Typography>
-          <Typography paragraph>
-            {`${resident.previous_career}`}
+          <Typography align='left' variant="h6" color="textSecondary">
+            Weight: {`${resident.weight}`}
+          </Typography> 
+          <Typography align='left' variant="h6" color="textSecondary">
+            PCP: {`${resident.pcp}`}
           </Typography>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
-            Interests:
+          <Typography align='left' variant="h6" color="textSecondary">
+            Ambulatory: {`${resident.ambulatory}`}
           </Typography>
-          <Typography paragraph>
-            {`${resident.interests}`}
+          <Typography align='left' variant="h6" color="textSecondary">
+            Help With Medications: {`${resident.help_with_medications}`}
           </Typography>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
-            Pets:
-          </Typography>
-          <Typography paragraph>
-            {`${resident.pets}`}
+          <Typography align='left' variant="h6" color="textSecondary">
+            Other Impairments:{`${resident.other_impairments}`}
           </Typography>
         </CardContent>
       </Collapse>

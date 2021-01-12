@@ -32,8 +32,9 @@ export default function FindARoomate() {
   const [semester, setSemester] = useState('');
   const [allResidents, setAllResidents] = useState([]);
   const [availableResidents, setAvailableResidents] = useState([]);
-  const [selectedResident, setSelectedResident] = useState('');
+  const [selectedResident, setSelectedResident] = useState(null);
   const [profile, setProfile] = useState(false);
+
 
   useEffect(() => {
   

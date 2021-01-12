@@ -4,6 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -12,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Form({selectSemester}) {
+function Form({selectSemester}) {
   const classes = useStyles();
   const [semester, setSemester] = React.useState('');
   const [open, setOpen] = React.useState(false);
@@ -34,10 +35,10 @@ export default function Form({selectSemester}) {
   return (
     <div>
       <FormControl className={classes.formControl} semester={semester}>
-        <InputLabel id="demo-controlled-open-select-label">Choose a semester</InputLabel>
+        <InputLabel id="dropdown-menu">Choose a semester</InputLabel>
         <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
+          labelId="dropdown-menu"
+          id="semester-dropdown"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
@@ -55,3 +56,9 @@ export default function Form({selectSemester}) {
     </div>
   );
 }
+
+Form.propTypes = {
+  selectSemester: PropTypes.func
+}
+
+export default Form;

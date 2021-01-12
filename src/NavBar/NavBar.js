@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function CenteredTabs({theme}) {
+const NavBar = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -51,3 +51,5 @@ export default function CenteredTabs({theme}) {
     </Paper>
   );
 }
+
+export default NavBar;

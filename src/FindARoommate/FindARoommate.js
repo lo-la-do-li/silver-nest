@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {getAllResidents, getResidentsBySemester} from '../apiCalls';
+import {getResidentsBySemester} from '../apiCalls';
 import Form from '../Form/Form';
-import Thumbnails from '../Thumbnails/Thumbnails'
+import Thumbnails from '../Thumbnails/Thumbnails';
 import ResidentCard from '../Profile/Profile';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import { HelpOutline } from '@material-ui/icons';
 
 const useStyles = makeStyles({
   root: {
@@ -26,7 +25,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function FindARoomate() {
+export default function FindARoommate() {
   const classes = useStyles();
 
   const [semester, setSemester] = useState('');
@@ -35,16 +34,8 @@ export default function FindARoomate() {
   const [selectedResident, setSelectedResident] = useState(null);
   const [profile, setProfile] = useState(false);
 
-
   useEffect(() => {
-  
   }, [semester, availableResidents])
-
-  // const getResidents = async () => {
-  //   await getAllResidents()
-  //   .then(data => setAllResidents(data))
-  //   .catch(err => console.log(err))
-  // }
 
   const selectSemester = (selectedSemester) => {
     setSemester(selectedSemester)
@@ -65,12 +56,11 @@ export default function FindARoomate() {
   const exitProfileView = (noResident) => {
     setProfile(false)
     setSelectedResident(noResident)
-
   }
 
   return (
     <Container className={classes.root}>
-      {!profile?
+      {!profile ?
       <>
       <Box className={classes.box}>
         <h1 className={classes.text}>Select a semester:</h1>
@@ -79,11 +69,10 @@ export default function FindARoomate() {
       
         <Thumbnails
           availableResidents={availableResidents}
-          // allResidents={allResidents}
           selectResident={selectResident}
           semesterAvailable={semester}
         />
-        </>
+      </>
       :
         <ResidentCard 
           resident={selectedResident} 

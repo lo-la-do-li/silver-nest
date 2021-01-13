@@ -169,7 +169,8 @@ const ResidentCard = ({resident, exitProfileView}) => {
 }
 
 ResidentCard.propTypes = {
-  resident: PropTypes.object
+  resident: PropTypes.object,
+  exitProfileView: PropTypes.func
 }
 
 export default ResidentCard;

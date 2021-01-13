@@ -12,20 +12,23 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import LocalHospitalRoundedIcon from '@material-ui/icons/LocalHospitalRounded';
 import PropTypes from 'prop-types';
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // maxWidth: 345,
     marginTop: 60
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -37,10 +40,10 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  cardText: {
+  medText: {
     align: 'left',
-    variant: "h6",
-    color: "textSecondary"
+    fontSize: '16',
+    color: 'textSecondary'
   },
   avatar: {
     backgroundColor: '#00acc1',
@@ -50,16 +53,29 @@ const useStyles = makeStyles((theme) => ({
 function ResidentCard({resident, exitProfileView}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  // const [close, setClose] = React.useState(false)
+  const [applied, setApplied] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpenDialogue = () => {
+    setOpen(true);
+  };
+
+  const handleCloseDialogue = () => {
+    setOpen(false);
+  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const handleCloseClick = () => {
+  const handleCloseProfile = () => {
     let noResident = '';
     exitProfileView(noResident);
-  }
+  };
+
+  const handleApplyChange = () => {
+    setApplied(true)
+  };
 
   return (
     <Card className={classes.root}>
@@ -70,7 +86,7 @@ function ResidentCard({resident, exitProfileView}) {
           </Avatar>
         }
         action={
-          <IconButton aria-label="cancel" onClick={() => {handleCloseClick()}}>
+          <IconButton aria-label="cancel" onClick={() => {handleCloseProfile()}}>
             <CancelPresentationIcon />
           </IconButton>
         }
@@ -88,7 +104,7 @@ function ResidentCard({resident, exitProfileView}) {
           Age:
         </Typography>
         <Typography paragraph>
-         {`${resident.age}`}
+          {`${resident.age}`}
         </Typography >
         <Typography variant="h6" color="textSecondary" gutterBottom>
           Interests:
@@ -121,16 +137,38 @@ function ResidentCard({resident, exitProfileView}) {
           {`${resident.additional_notes}`}
         </Typography>    
       </CardContent>
+      
       <CardActions disableSpacing>
-        <IconButton aria-label="liked, application in process">
+        <IconButton aria-label="application-in-process">
           <FavoriteIcon />
         </IconButton>
-        <Button variant="outlined" color="secondary" aria-label="apply for housing">
+
+      <div>
+        <Button onClick={handleClickOpenDialogue} variant="outlined" color="secondary" aria-label="apply for housing">
               Apply for Housing
         </Button>
-        {/* <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton> */}
+        <Dialog
+          open={open}
+          onClose={handleCloseDialogue}
+          aria-labelledby="alert-dialog-apply-for-housing"
+          aria-describedby="alert-dialog-agree-or-disagree"
+        >
+          <DialogTitle id="alert-dialog-apply">Submit Application?</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Choose "Agree" if you like to submit your application to house with {resident.name} for the semester of {resident.semester}. You will be notified via email if you are selected for this residency pending approval.  
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseDialogue} color="secondary">
+              Disagree
+            </Button>
+            <Button onClick={handleCloseDialogue} color="secondary" autoFocus>
+              Agree
+            </Button>
+          </DialogActions>
+        </Dialog>
+    </div>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -139,28 +177,33 @@ function ResidentCard({resident, exitProfileView}) {
           aria-expanded={expanded}
           aria-label="show more"
         >
+          <LocalHospitalRoundedIcon color="secondary"/>
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
+      
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography align='left' variant="h6" color="textSecondary">
-            Height: {`${resident.height}`}
+        <CardContent align='left' className={classes.medText}>
+          <Typography paragraph='true' align='left' variant="h6" color="textPrimary">
+            <b>Medical Information</b>
           </Typography>
-          <Typography align='left' variant="h6" color="textSecondary">
-            Weight: {`${resident.weight}`}
+          <Typography className={classes.medText}>
+            <b>Height:</b> {`${resident.height}`}
+          </Typography>
+          <Typography>
+            <b>Weight:</b> {`${resident.weight}`}
           </Typography> 
-          <Typography align='left' variant="h6" color="textSecondary">
-            PCP: {`${resident.pcp}`}
+          <Typography>
+            <b>PCP:</b> {`${resident.pcp}`}
           </Typography>
-          <Typography align='left' variant="h6" color="textSecondary">
-            Ambulatory: {`${resident.ambulatory}`}
+          <Typography>
+            <b>Ambulatory:</b> {`${resident.ambulatory}`}
           </Typography>
-          <Typography align='left' variant="h6" color="textSecondary">
-            Help With Medications: {`${resident.help_with_medications}`}
+          <Typography>
+            <b>Help With Medications:</b> {`${resident.help_with_medications}`}
           </Typography>
-          <Typography align='left' variant="h6" color="textSecondary">
-            Other Impairments:{`${resident.other_impairments}`}
+          <Typography>
+            <b>Other Impairments:</b> {`${resident.other_impairments}`}
           </Typography>
         </CardContent>
       </Collapse>

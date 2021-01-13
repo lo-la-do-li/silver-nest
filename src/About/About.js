@@ -11,10 +11,7 @@ import { tileData } from '../assets/tileData.js';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    // flexWrap: 'wrap',
     justifyContent: 'space-around',
-    // overflow: 'hidden',
-    // backgroundColor: theme.palette.background.paper,
     flexDirection: 'row',
     paddingTop: 20
     },
@@ -24,20 +21,19 @@ const useStyles = makeStyles(theme => ({
   },
   box: {
     paddingTop: 1,
-    padding: theme.spacing(7)
+    padding: theme.spacing(7),
+    paddingBottom: 25,
   },
   gridList: {
     cellHeight: 160,
     cols: 3,
-    // width: 500,
-    // height: 100%,
   },
   h1: {
     textAlign: 'left', 
     color:"#7c8181"
   },
   button: {
-    padding: 20
+    padding: 20,
   }
   }));
 

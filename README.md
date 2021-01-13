@@ -63,7 +63,7 @@ Description here
 * Migrating and seeding
 * Learning backend fundamentals
 * Hosting server on heroku
-* Using React with hoods for the first time
+* Using React with hooks for the first time
 * Dificulty testing profile for getting the resident prop into render method
 
 ## Wins

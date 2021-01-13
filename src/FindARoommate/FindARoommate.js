@@ -25,7 +25,8 @@ const useStyles = makeStyles({
   }
 });
 
-export default function FindARoommate() {
+const FindARoommate = () => {
+
   const classes = useStyles();
 
   const [semester, setSemester] = useState('');
@@ -81,3 +82,5 @@ export default function FindARoommate() {
     </Container>
   );
 }
+
+export default FindARoommate;

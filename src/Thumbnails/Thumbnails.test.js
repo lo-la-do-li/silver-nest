@@ -2,19 +2,23 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Thumbnails from './Thumbnails';
-import { Router, MemoryRouter } from 'react-router';
-import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router';
+import { springResident } from '../mockResidentData';
 
 describe('Thumbnails', () => {
-  //This test file will mostly be for unit testing
-  it.skip('It should display thumbnails', () => {
-    // setup and execution 
+  it('should display residents', () => {
     render(
-
+      <MemoryRouter>
+        <Thumbnails
+          availableResidents={springResident}
+          selectResident={null}
+          semesterAvailable="Spring-2021"
+        />
+      </MemoryRouter>
     )
-    //execution
-      
-    // assertions
-    expect(screen.getByText()).toBeInTheDocument()
+
+    const doris = screen.getByRole('img', { name: /doris/i })
+
+    expect(doris).toBeInTheDocument()
   })
 })

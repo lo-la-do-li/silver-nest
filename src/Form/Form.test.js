@@ -6,12 +6,11 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 
 describe('Form', () => {
-  it('It should display a form', () => {
-    const mockSelectedSemester = jest.fn()
+  it('should display a form', () => {
     render(
       <MemoryRouter>
         <Form
-          selectedSemester={mockSelectedSemester}
+          selectSemester={jest.fn()}
         />
       </MemoryRouter>
     )
@@ -21,22 +20,20 @@ describe('Form', () => {
     expect(formText).toBeInTheDocument()
   })
 
-  it('It should display a form', async () => {
-    const mockSelectedSemester = jest.fn()
-    
+  it('should display options when user clicks on form', () => {
     render(
       <MemoryRouter>
         <Form
-          selectedSemester={mockSelectedSemester}
+          selectSemester={jest.fn}
         />
       </MemoryRouter>
     )
     
-    const chooseSemesterForm = screen.getByRole('button')
+    const semesterDropdown = screen.getByRole('button', { name: /choose a semester ​/i })
     
-    userEvent.click(chooseSemesterForm)
+    userEvent.click(semesterDropdown)
     
-    const springText = screen.getByRole('option', { name: /summer 2021/i })
+    const springText = screen.getByRole('option', { name: /spring 2021/i })
     const summmerText = screen.getByText('Summer 2021')
     const fallText = screen.getByText('Fall 2021')
     

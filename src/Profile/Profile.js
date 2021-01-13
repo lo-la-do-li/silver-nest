@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function ResidentCard({resident, exitProfileView}) {
+const ResidentCard = ({resident, exitProfileView}) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [applied, setApplied] = React.useState(false);
@@ -229,7 +229,8 @@ function ResidentCard({resident, exitProfileView}) {
 }
 
 ResidentCard.propTypes = {
-  resident: PropTypes.object
+  resident: PropTypes.object,
+  exitProfileView: PropTypes.func
 }
 
 export default ResidentCard;

@@ -14,7 +14,7 @@ By: [Lola Dolinsky](https://github.com/lo-la-do-li), [Chadrick Dickerson](https:
 
 ## Project Overview
 
-We decided to take on a project idea, which is intended to solve an issue regarding housing and experience for college students. In addition, this would also solve the issue for older adults, who wish to age-in-place, or maintain some independence by continuing to live in their own home. The idea is to give students in the college of Health and Human sciences the chance to live with an older adult rent free in exchange for trips to doctor's appointments, help with mobility, medications, and general activities of daily living. The Silver Nest Sever is a data base which enables our application to house data specific to an older adult who wishes to be involved with this program. From here, data is displayed in the app for students to find an older adult with needs they feel most suited to assist with.
+We decided to take on a project idea, which is intended to solve an issue regarding housing and practical experience for college students who plan to enter the medical field. In addition, this would also solve the issue for older adults, who wish to age-in-place, or maintain some independence by continuing to live in their own home. The idea is to give students in the college of Health and Human sciences the chance to live with an older adult rent free in exchange for trips to doctor's appointments, help with mobility, medications, and general activities of daily living. The Silver Nest Server is a database which enables our application to house data specific to an older adult who wishes to be involved with this program. From here, data is displayed in the app for students to find an older adult with needs they feel most suited to assist with.
 
 #### Check out our resting database [Silver Nest Backend Server](https://github.com/chadrick-d-dev/silver-nest-api)
 
@@ -56,19 +56,19 @@ We decided to take on a project idea, which is intended to solve an issue regard
 * *Click* the **Fork** button on the top right-hand corner of this page
 * Clone the repository down and cd into the repo on your local machine by running:
   * `git clone git@github.com:cameronRomo/silver-nest.git`
-  * `cd silver-nest`
+  * cd into `silver-nest` locally
 * Install the library dependencies by running:
   * `npm install`
 * To verify that it is setup correctly, run `npm start` in your terminal.
 * Go to `http://localhost:3000/` and you should see the site.
 * Enter `control + c` in your terminal to stop the server at any time.
-* Add your changes and push up to GitHub and submit a pull request
+* Add your changes, push up to GitHub and submit a pull request
 </details>
 
 ## Challenges
-* Migrating and seeding
-* Learning backend fundamentals
-* Hosting server on heroku
+* Learning backend fundamentals such as migrating and seeding
+* Hosting our server on heroku
+* Familiarizing ourselves with the Heroku and Knex CLI
 * Using React with hooks for the first time
 * Dificulty testing profile for getting the resident prop into render method
 
@@ -76,10 +76,10 @@ We decided to take on a project idea, which is intended to solve an issue regard
 * Successfully developing and debloying a backend for our site
 * Implementing successful study techniques to efficiently build our project within a 7 day window
 * Successully using material-ui for the build and styles of our UI
-* Passing and manipulating data to suit 
+* Passing and manipulating data to suit the needs of user interaction
 
 ## Roadmap
-* With more time, we would like to enhance the UI/UX by:
+With more time, we would like to enhance the UI/UX by:
 * Adding a view for the home owner
 * User authentication
 * Enable a chat between prospective students and residents

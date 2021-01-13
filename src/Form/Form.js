@@ -45,9 +45,6 @@ function Form({selectSemester}) {
           value={semester}
           onChange={handleChange}
         >
-          {/* <MenuItem value="">
-            <em>None</em>
-          </MenuItem> */}
           <MenuItem value='Spring-2021'>Spring 2021</MenuItem>
           <MenuItem value='Summer-2021'>Summer 2021</MenuItem>
           <MenuItem value='Fall-2021'>Fall 2021</MenuItem>

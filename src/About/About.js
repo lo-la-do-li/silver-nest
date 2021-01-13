@@ -57,7 +57,7 @@ const About = () => {
         </Button> 
       </div>
     </Container>
-  )
+  );
 }
 
 export default About;

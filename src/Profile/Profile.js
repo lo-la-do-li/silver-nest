@@ -21,6 +21,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import turingHealthLogo from '../turingHealthLogo.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: '#00acc1',
   },
+  heartImg: {
+    height: 38,
+    paddingRight: 15
+  }
 }));
 
 function ResidentCard({resident, exitProfileView}) {
@@ -75,6 +80,7 @@ function ResidentCard({resident, exitProfileView}) {
 
   const handleApplyChange = () => {
     setApplied(true)
+    handleCloseDialogue()
   };
 
   return (
@@ -87,7 +93,7 @@ function ResidentCard({resident, exitProfileView}) {
         }
         action={
           <IconButton aria-label="cancel" onClick={() => {handleCloseProfile()}}>
-            <CancelPresentationIcon />
+            <CancelPresentationIcon fontSize="large"/>
           </IconButton>
         }
         title={resident.name}
@@ -96,7 +102,7 @@ function ResidentCard({resident, exitProfileView}) {
       <CardMedia
         className={classes.media}
         image={resident.photo}
-        title={`${resident.name}'s Photo`}
+        title={`${resident.name}'s Photo`} 
       />
 
       <CardContent>
@@ -139,11 +145,22 @@ function ResidentCard({resident, exitProfileView}) {
       </CardContent>
       
       <CardActions disableSpacing>
-        <IconButton aria-label="application-in-process">
-          <FavoriteIcon />
-        </IconButton>
-
-      <div>
+        {applied && 
+        <>
+          <img className={classes.heartImg} src={turingHealthLogo} alt="application-in-process" />
+         <Button variant="outlined" color="secondary" aria-label="application-pending">
+              Application Pending
+        </Button>
+        </>
+        }
+        
+        {!applied && 
+       
+        <div>
+          <IconButton aria-label="no-application">
+        <FavoriteIcon />
+          </IconButton>
+      
         <Button onClick={handleClickOpenDialogue} variant="outlined" color="secondary" aria-label="apply for housing">
               Apply for Housing
         </Button>
@@ -163,12 +180,13 @@ function ResidentCard({resident, exitProfileView}) {
             <Button onClick={handleCloseDialogue} color="secondary">
               Disagree
             </Button>
-            <Button onClick={handleCloseDialogue} color="secondary" autoFocus>
+            <Button onClick={handleApplyChange} color="secondary" autoFocus>
               Agree
             </Button>
           </DialogActions>
         </Dialog>
     </div>
+    }
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,

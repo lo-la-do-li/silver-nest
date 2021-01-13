@@ -4,10 +4,8 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import AccountBoxIcon from '@material-ui/icons/AccountBox'
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PropTypes from 'prop-types';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
-    cursor: 'grab'
   },
   gridList: {
     flexWrap: 'nowrap',
@@ -27,18 +24,18 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 24,
   },
   icon: {
-    color: '#00acc1',
-    backgroundColor: 'white'
+    color: 'white',
+    cursor: 'point'
   },
   titleBar: {
     background:
       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 }));
- 
+
 function Thumbnails({availableResidents, allResidents, selectResident, semesterAvailable}) {
   const classes = useStyles();
- 
+
   const handleClick = (resident) => {
     selectResident(resident)
   }
@@ -46,7 +43,7 @@ function Thumbnails({availableResidents, allResidents, selectResident, semesterA
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
         {availableResidents.map((resident, index) => (
-          <GridListTile key={index} onClick={() => handleClick(resident)}>
+          <GridListTile key={index} >
             <img src={resident.photo} id={resident.id} alt={resident.name} />
             <GridListTileBar
               title={resident.name}
@@ -55,8 +52,8 @@ function Thumbnails({availableResidents, allResidents, selectResident, semesterA
                 title: classes.title,
               }}
               actionIcon={
-                <IconButton aria-label={`star ${resident.name}`} >
-                  <AccountBoxIcon className={classes.icon}/>
+                <IconButton aria-label={`profile ${resident.name}`} >
+                  <AccountBoxIcon fontSize='large' className={classes.icon} onClick={() => handleClick(resident)}/>
                 </IconButton>
               }
             />

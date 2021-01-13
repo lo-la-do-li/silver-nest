@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import ResidentCard from './Profile';
+import Profile from './Profile';
 import { MemoryRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
 import { springResident } from '../mockResidentData';
@@ -11,7 +11,7 @@ describe('Profile', () => {
   it.skip('should display a profile of an resident', async () => {
     render(
       <MemoryRouter>
-        <ResidentCard
+        <Profile
           resident={springResident}
           exitProfileView={jest.fn()}
         />
@@ -30,7 +30,7 @@ describe('Profile', () => {
   it.skip('should allow user to view additional settings by clicking carrot icon', () => {
     render(
       <MemoryRouter>
-        <ResidentCard
+        <Profile
           resident={springResident}
           exitProfileView={jest.fn()}
         />

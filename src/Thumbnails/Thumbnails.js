@@ -32,9 +32,8 @@ const useStyles = makeStyles((theme) => ({
       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 }));
- 
-const Thumbnails = ({availableResidents, allResidents, selectResident, semesterAvailable}) => {
 
+function Thumbnails({availableResidents, allResidents, selectResident, semesterAvailable}) {
   const classes = useStyles();
 
   const handleClick = (resident) => {
@@ -53,8 +52,8 @@ const Thumbnails = ({availableResidents, allResidents, selectResident, semesterA
                 title: classes.title,
               }}
               actionIcon={
-                <IconButton aria-label={`profile ${resident.name}`} >
-                  <AccountBoxIcon fontSize='large' className={classes.icon} onClick={() => handleClick(resident)}/>
+                <IconButton aria-label={`profile ${resident.name}`} onClick={() => handleClick(resident)}>
+                  <AccountBoxIcon fontSize='large' className={classes.icon} />
                 </IconButton>
               }
             />
@@ -68,7 +67,7 @@ const Thumbnails = ({availableResidents, allResidents, selectResident, semesterA
 Thumbnails.propTypes = {
   availableResidents: PropTypes.array,
   allResidents: PropTypes.array, 
-  selectResident: PropTypes.object,
+  selectResident: PropTypes.func,
   semesterAvailable: PropTypes.string,
 }
 

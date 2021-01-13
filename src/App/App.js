@@ -17,18 +17,18 @@ const theme = createMuiTheme({
   },
 });
 
-const App = () => {
+function App() {
   return (
-  <MuiThemeProvider theme={theme}>
-    <div className="App">
-      <NavBar/>
-      <Switch>
-        <Redirect exact path="/" to="/about" component={About}/>
-        <Route path="/about" component={About}/>
-        <Route path="/find-a-roommate" component={FindARoommate}/>
-      </Switch>
-    </div>
-    </MuiThemeProvider>
+    <MuiThemeProvider theme={theme}>
+      <div className="App">
+        <NavBar/>
+        <Switch>
+          <Redirect exact path="/" to="/about" component={About}/>
+          <Route path="/about" component={About}/>
+          <Route path="/find-a-roommate" component={FindARoommate}/>
+        </Switch>
+      </div>
+      </MuiThemeProvider>
   );
 }
 

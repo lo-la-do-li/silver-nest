@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Form({selectSemester}) {
+const Form = ({selectSemester}) => {
   const classes = useStyles();
   const [semester, setSemester] = React.useState('');
   const [open, setOpen] = React.useState(false);

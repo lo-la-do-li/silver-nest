@@ -6,42 +6,33 @@ import { Router, MemoryRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
 
 describe('App', () => {
-  //This testing file focuses more on integration testing
-  it.skip('It should display a header', () => {
-    // setup and execution 
+  beforeEach(() => {
     render(
-
+      <MemoryRouter>
+        <App/>
+      </MemoryRouter>
     )
-    //execution
-      
-    // assertions
-    expect(screen.getByText()).toBeInTheDocument()
   })
-  it.skip('It should display a navBar', () => {
-    // setup and execution 
-    render(
+  it('should render silver nest logo', () => {
+    const logo = screen.getByRole('img', { name: /turing school of health sciences logo/i })
 
-    )
-    //execution
-      
-    // assertions
-    expect(screen.getByText()).toBeInTheDocument()
+    expect(logo).toBeInTheDocument();
   })
-  it.skip('It should display about details on load', () => {
-    // setup and execution 
-    render(
 
-    )
-    //execution
-      
-    // assertions
-    expect(screen.getByText()).toBeInTheDocument()
+  it('should display About page on load', () => {
+    const missionStatement = screen.getByText('Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living resort, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.')
+ 
+    expect(missionStatement).toBeInTheDocument()
   })
-  it.skip('It should display FindARoommate component when Find A Roommate tab is clicked', () => {
-    // setup and execution 
-    render(
+  it('should render FindARoommate when FindARoommate Button in About is clicked', () => {
+    const findARoommateButton =  screen.getByRole('button', { name: /find a roommate/i })
 
-    )
+    userEvent.click(findARoommateButton)
+
+    const findARoommateHeader = screen.getByRole('heading', { name: /select a semester:/i })
+    expect(findARoommateHeader).toBeInTheDocument()
+  })
+  it.skip('should display FindARoommate component when Find A Roommate tab is clicked', () => {
     //execution
       
     // assertions

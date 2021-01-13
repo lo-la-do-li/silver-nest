@@ -12,8 +12,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 180,
   },
 }));
-
-const Form = ({selectSemester}) => {
+function Form({selectSemester}) {
   const classes = useStyles();
   const [semester, setSemester] = React.useState('');
   const [open, setOpen] = React.useState(false);

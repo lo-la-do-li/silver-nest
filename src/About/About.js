@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   }
   }));
 
-const About = () => {
+function About() {
   const classes = useStyles();
   return (
     <Container className={classes.root}>

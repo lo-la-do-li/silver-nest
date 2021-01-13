@@ -1,13 +1,6 @@
 # [Silver Nest](https://silver-nest.herokuapp.com/about) *group project*
-# [Silver Nest Backend Server](https://github.com/chadrick-d-dev/silver-nest-api)
 
-![Screen Shot 2021-01-13 at 12 54 48 AM](https://user-images.githubusercontent.com/63012953/104422649-4b04c500-553a-11eb-9d44-99e41f95d115.png)
-
-![Screen Shot 2021-01-13 at 12 55 07 AM](https://user-images.githubusercontent.com/63012953/104422654-4c35f200-553a-11eb-8f8f-1bb070afb7f8.png)
-
-![Screen Shot 2021-01-13 at 12 56 42 AM](https://user-images.githubusercontent.com/63012953/104422660-4d671f00-553a-11eb-8be6-4bc2aa310a45.png)
-
-![silver-nest-gif](https://user-images.githubusercontent.com/12281987/104424154-39242180-553c-11eb-9313-93c1cd5e7d91.gif)
+By: [Lola Dolinsky](https://github.com/lo-la-do-li), [Chadrick Dickerson](https://github.com/chadrick-d-dev), and [Cameron Romo](https://github.com/cameronRomo)
 
 ## Table of Contents
 
@@ -18,9 +11,22 @@
 * [Wins](#wins)
 * [Roadmap](#roadmap)
 * [Contributors](#contributors)
+
 ## Project Overview
 
-Description here
+We decided to take on a project idea, which is intended to solve an issue regarding housing and experience for college students. In addition, this would also solve the issue for older adults, who wish to age-in-place, or maintain some independence by continuing to live in their own home. The idea is to give students in the college of Health and Human sciences the chance to live with an older adult rent free in exchange for trips to doctor's appointments, help with mobility, medications, and general activities of daily living. The Silver Nest Sever is a data base which enables our application to house data specific to an older adult who wishes to be involved with this program. From here, data is displayed in the app for students to find an older adult with needs they feel most suited to assist with.
+
+#### Check out our resting database [Silver Nest Backend Server](https://github.com/chadrick-d-dev/silver-nest-api)
+
+## Silver Nest in Action:
+
+![Screen Shot 2021-01-13 at 12 54 48 AM](https://user-images.githubusercontent.com/63012953/104422649-4b04c500-553a-11eb-9d44-99e41f95d115.png)
+
+![Screen Shot 2021-01-13 at 12 55 07 AM](https://user-images.githubusercontent.com/63012953/104422654-4c35f200-553a-11eb-8f8f-1bb070afb7f8.png)
+
+![Screen Shot 2021-01-13 at 12 56 42 AM](https://user-images.githubusercontent.com/63012953/104422660-4d671f00-553a-11eb-8be6-4bc2aa310a45.png)
+
+![silver-nest-gif](https://user-images.githubusercontent.com/12281987/104424154-39242180-553c-11eb-9313-93c1cd5e7d91.gif)
 
 ## Goals
 * Build a backend server with PostgreSQL, Express, and Knex
@@ -99,8 +105,9 @@ Description here
 
 - [Cameron Romo](https://github.com/cameronRomo)
 
-## Honerable Mentions
+## Thanks to our mentors,
 
 * [Nicole Gooden](https://github.com/nicolegooden)
 * [Steph Segura](https://github.com/Musiclove43)
+* Eric Fitzsimons
 * Project Managers

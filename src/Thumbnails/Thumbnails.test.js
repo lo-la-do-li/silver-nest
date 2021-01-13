@@ -13,7 +13,7 @@ describe('Thumbnails', () => {
       <MemoryRouter>
         <Thumbnails
           availableResidents={springResident}
-          selectResident={jest.fn()}
+          selectResident={null}
           semesterAvailable="Spring-2021"
         />
       </MemoryRouter>

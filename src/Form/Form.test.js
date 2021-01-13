@@ -6,7 +6,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 
 describe('Form', () => {
-  it('should display a form', () => {
+  beforeEach(() => {
     render(
       <MemoryRouter>
         <Form
@@ -14,23 +14,14 @@ describe('Form', () => {
         />
       </MemoryRouter>
     )
-
+  })
+  it('should display a form', () => {
     const formText = screen.getByText('Choose a semester')
-   
     expect(formText).toBeInTheDocument()
   })
 
-  it('should display options when user clicks on form', () => {
-    render(
-      <MemoryRouter>
-        <Form
-          selectSemester={jest.fn}
-        />
-      </MemoryRouter>
-    )
-    
+  it('should display options when user clicks on form', () => {  
     const semesterDropdown = screen.getByRole('button', { name: /choose a semester ​/i })
-    
     userEvent.click(semesterDropdown)
     
     const springText = screen.getByRole('option', { name: /spring 2021/i })

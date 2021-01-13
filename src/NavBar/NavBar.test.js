@@ -23,7 +23,6 @@ describe('NavBar', () => {
 
   it('should route user to About page when About tab is clicked', async () => {
     const history = createMemoryHistory()
-
     render(
       <Router history={history}>
         <NavBar/>
@@ -31,7 +30,6 @@ describe('NavBar', () => {
     )
 
     const aboutTab = await waitFor(() => screen.getByText('About'))
-    
     userEvent.click(aboutTab)
     
     expect(history.location.pathname).toBe('/about')
@@ -39,15 +37,13 @@ describe('NavBar', () => {
 
   it('should route user to Find a Roommate page when Find A Roommate tab is clicked', async () => {
     const history = createMemoryHistory()
-
     render(
       <Router history={history}>
         <NavBar/>
       </Router>
     )
 
-    const roommateTab = await waitFor(() => screen.getByText('Find A Roommate'))
-    
+    const roommateTab = await waitFor(() => screen.getByRole('tab', { name: /find a roommate/i }))
     userEvent.click(roommateTab)
     
     expect(history.location.pathname).toBe('/find-a-roommate')

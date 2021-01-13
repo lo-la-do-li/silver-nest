@@ -12,6 +12,7 @@ jest.mock('../apiCalls.js');
 describe('FindARoommate', () => {
   beforeEach(() => {
     getResidentsBySemester.mockResolvedValueOnce(springResident)
+
     render(
       <MemoryRouter>
         <FindARoommate/>
@@ -52,7 +53,7 @@ describe('FindARoommate', () => {
     const springText = screen.getByText('Spring 2021')
     userEvent.click(springText)
     const dorisButton = await waitFor(() => screen.getByRole('button', { name: /profile doris/i }))
-    userEvent.click(dorisButton)
+    userEvent.click(dorisButton) 
     const career = screen.getByText('Seamstress')
     expect(career).toBeInTheDocument()  
   })

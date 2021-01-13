@@ -32,11 +32,11 @@ describe('Form', () => {
       </MemoryRouter>
     )
     
-    const chooseSemesterForm = screen.getByRole('button')
+    const semesterDropdown = screen.getByRole('button', { name: /choose a semester ​/i })
     
-    userEvent.click(chooseSemesterForm)
+    userEvent.click(semesterDropdown)
     
-    const springText = screen.getByRole('option', { name: /summer 2021/i })
+    const springText = screen.getByRole('option', { name: /spring 2021/i })
     const summmerText = screen.getByText('Summer 2021')
     const fallText = screen.getByText('Fall 2021')
     

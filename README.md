@@ -85,6 +85,7 @@ We decided to take on a project idea, which is intended to solve an issue regard
 * Enable a chat between prospective students and residents
 * Updating the data base to show that a resident is no longer available
 
+## Project Managers
 
 #### Leta Keane
 #### Will Mitchell

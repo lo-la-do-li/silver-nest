@@ -1,4 +1,4 @@
-const mockResidents = [
+export const springResident = [
   {
     name: "Doris",
     photo: "https://erinwritesnow.files.wordpress.com/2017/01/cute-happy-older-lady.jpg",
@@ -15,7 +15,10 @@ const mockResidents = [
     living_preferences: "I would feel most comfortable sharing my home with a female student",
     semester: "Spring-2021",
     additional_notes: "I need help feeding my cat, Mittens. Please don't eat peanuts around me, I am terribly allergic."
-  },
+  }
+]
+
+export const summerResident = [
   {
     name: "Ralph",
     photo: "https://previews.123rf.com/images/natakot/natakot1810/natakot181001281/110094284-happy-old-man-showing-thumbs-up-working-out-with-a-dumbbell.jpg",
@@ -32,7 +35,10 @@ const mockResidents = [
     living_preferences: "I like to wake up early and stay active.",
     semester: "Summer-2021",
     additional_notes: "Once a month, my 12-year-old grandson comes to stay with me. He's a good kid and is fine sleeping on the couch."
-  },
+  }
+]
+
+export const fallResident= [  
   {
     name: "Wendy",
     photo: "https://reengage.org.uk/site/assets/files/1068/possible_home_page.750x0.jpg",
@@ -51,5 +57,3 @@ const mockResidents = [
     additional_notes: "It's important for me to keep cooking -- it's one of my favorite hobbies -- however, I sometimes forget I have stuff on the stove"
   }
 ]
-
-export default mockResidents;

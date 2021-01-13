@@ -6,12 +6,11 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 
 describe('Form', () => {
-  it('It should display a form', () => {
-    const mockSelectedSemester = jest.fn()
+  it('should display a form', () => {
     render(
       <MemoryRouter>
         <Form
-          selectedSemester={mockSelectedSemester}
+          selectSemester={jest.fn()}
         />
       </MemoryRouter>
     )
@@ -21,13 +20,11 @@ describe('Form', () => {
     expect(formText).toBeInTheDocument()
   })
 
-  it('It should display a form', async () => {
-    const mockSelectedSemester = jest.fn()
-    
+  it('should display options when user clicks on form', () => {
     render(
       <MemoryRouter>
         <Form
-          selectedSemester={mockSelectedSemester}
+          selectSemester={jest.fn}
         />
       </MemoryRouter>
     )

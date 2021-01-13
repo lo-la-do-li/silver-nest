@@ -4,11 +4,10 @@ import '@testing-library/jest-dom';
 import Thumbnails from './Thumbnails';
 import { Router, MemoryRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
-import { springResident, summerResident, fallResident } from '../mockResidentData';
+import { springResident } from '../mockResidentData';
 
 describe('Thumbnails', () => {
-  //This test file will mostly be for unit testing
-  it('should display thumbnails', () => {
+  it('should display residents', () => {
     // setup and execution 
     render(
       <MemoryRouter>

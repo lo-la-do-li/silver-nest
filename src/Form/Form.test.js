@@ -17,13 +17,11 @@ describe('Form', () => {
   })
   it('should display a form', () => {
     const formText = screen.getByText('Choose a semester')
-   
     expect(formText).toBeInTheDocument()
   })
 
   it('should display options when user clicks on form', () => {  
     const semesterDropdown = screen.getByRole('button', { name: /choose a semester ​/i })
-    
     userEvent.click(semesterDropdown)
     
     const springText = screen.getByRole('option', { name: /spring 2021/i })

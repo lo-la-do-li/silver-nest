@@ -1,5 +1,12 @@
-# [Silver Nest](deployed project link here) *group project*
+# [Silver Nest](https://silver-nest.herokuapp.com/about) *group project*
 # [Silver Nest Backend Server](https://github.com/chadrick-d-dev/silver-nest-api)
+
+![Screen Shot 2021-01-13 at 12 54 48 AM](https://user-images.githubusercontent.com/63012953/104422649-4b04c500-553a-11eb-9d44-99e41f95d115.png)
+
+![Screen Shot 2021-01-13 at 12 55 07 AM](https://user-images.githubusercontent.com/63012953/104422654-4c35f200-553a-11eb-8f8f-1bb070afb7f8.png)
+
+![Screen Shot 2021-01-13 at 12 56 42 AM](https://user-images.githubusercontent.com/63012953/104422660-4d671f00-553a-11eb-8be6-4bc2aa310a45.png)
+
 ## Table of Contents
 
 * [Project Overview](#project-overview)
@@ -14,7 +21,11 @@
 Description here
 
 ## Goals
-* Add goals
+* Build a backend server with PostgreSQL, Express, and Knex
+* Host our unique database remotely on Heroku
+* Make successful API calls to our backend server within our Frontend UI to access and render our data
+* Build out a cleanly designed, intuitive, and accessible frontend as a piece of a potentially much larger application concept
+
 ## Technologies And Tools
 > * React (With hooks)
 > * React Testing (with Jest)
@@ -47,14 +58,25 @@ Description here
 </details>
 
 ## Challenges
-* Add some challenges
+* Migrating and seeding
+* Learning backend fundamentals
+* Hosting server on heroku
+* Using React with hoods for the first time
+* Dificulty testing profile for getting the resident prop into render method
 
 ## Wins
-* Add some wins
+* Successfully developing and debloying a backend for our site
+* Implementing successful study techniques to efficiently build our project within a 7 day window
+* Successully using material-ui for the build and styles of our UI
+* Passing and manipulating data to suit 
 
 ## Roadmap
 * With more time, we would like to enhance the UI/UX by:
-## Project Managers:
+* Adding a view for the home owner
+* User authentication
+* Enable a chat between prospective students and residents
+* Updating the data base to show that a resident is no longer available
+
 
 #### Leta Keane
 #### Will Mitchell

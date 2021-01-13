@@ -12,37 +12,27 @@ describe('FindARoommate', () => {
   
   beforeEach(() => {
     getResidentsBySemester.mockResolvedValueOnce(springResident)
-  })
-  
-  it('should display a header', () => {
+    
     render(
       <MemoryRouter>
         <FindARoommate/>
       </MemoryRouter>
     )
+  })
+  
+  it('should display a header', () => {  
     const headerText = screen.getByText('Select a semester:')  
 
     expect(headerText).toBeInTheDocument()
   })
 
   it('should render Form', () => {
-    render(
-      <MemoryRouter>
-        <FindARoommate/>
-      </MemoryRouter>
-    )
-    
     const semesterDropdown = screen.getByRole('button', { name: /choose a semester ​/i })
     
     expect(semesterDropdown).toBeInTheDocument()
   })
 
   it('should run call for residents when form option is clicked', async () => {
-    render(
-      <MemoryRouter>
-        <FindARoommate/>
-      </MemoryRouter>
-    )
     const semesterDropdown = await waitFor(() => screen.getByRole('button', { name: /choose a semester ​/i }))
     
 
@@ -56,12 +46,6 @@ describe('FindARoommate', () => {
     })
 
   it('should render residents when form option is clicked', async () => {
-    render(
-      <MemoryRouter>
-        <FindARoommate/>
-      </MemoryRouter>
-    )
-    
     const semesterDropdown = await waitFor(() => screen.getByRole('button', { name: /choose a semester ​/i }))
 
     userEvent.click(semesterDropdown)
@@ -76,12 +60,6 @@ describe('FindARoommate', () => {
   })
 
   it('should render resident profile when a resident button is clicked', async () => {
-    render(
-      <MemoryRouter>
-        <FindARoommate/>
-      </MemoryRouter>
-    )
-    
     const semesterDropdown = await waitFor(() => screen.getByRole('button', { name: /choose a semester ​/i }))
 
     userEvent.click(semesterDropdown)
@@ -100,12 +78,6 @@ describe('FindARoommate', () => {
   })
 
   it('should allow user to close resident profile by clicking cancel button', async () => {
-    render(
-      <MemoryRouter>
-        <FindARoommate/>
-      </MemoryRouter>
-    )
-    
     const semesterDropdown = await waitFor(() => screen.getByRole('button', { name: /choose a semester ​/i }))
 
     userEvent.click(semesterDropdown)

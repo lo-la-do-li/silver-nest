@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
  
-function Thumbnails({availableResidents, allResidents, selectResident, semesterAvailable}) {
+const Thumbnails= ({availableResidents, allResidents, selectResident, semesterAvailable}) => {
   const classes = useStyles();
  
   const handleClick = (resident) => {

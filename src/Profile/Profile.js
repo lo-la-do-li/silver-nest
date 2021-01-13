@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ResidentCard({resident, exitProfileView}) {
+const ResidentCard = ({resident, exitProfileView}) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   // const [close, setClose] = React.useState(false)

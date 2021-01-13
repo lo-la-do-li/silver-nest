@@ -18,7 +18,6 @@ describe('Thumbnails', () => {
     )
 
     const doris = screen.getByRole('img', { name: /doris/i })
-
     expect(doris).toBeInTheDocument()
   })
 })

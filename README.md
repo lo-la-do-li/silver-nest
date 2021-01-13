@@ -7,7 +7,7 @@
 
 ![Screen Shot 2021-01-13 at 12 56 42 AM](https://user-images.githubusercontent.com/63012953/104422660-4d671f00-553a-11eb-8be6-4bc2aa310a45.png)
 
-![silver-nest](https://user-images.githubusercontent.com/12281987/104423480-63c1aa80-553b-11eb-977b-9c2233659f7b.gif width="400" height="auto" )
+![silver-nest-gif](https://user-images.githubusercontent.com/12281987/104424154-39242180-553c-11eb-9313-93c1cd5e7d91.gif)
 
 ## Table of Contents
 

@@ -6,15 +6,16 @@ import { Router, MemoryRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
 
 describe('About', () => {
-  //this testing file will mostly be for unit testing
-  it.skip('It should display a description of the app and the collaboration', () => {
-    // setup and execution 
+  it('It should display a description of the app and the collaboration', () => {
+    
     render(
-
+      <MemoryRouter>
+        <About/>
+      </MemoryRouter>
     )
-    //execution
-      
-    // assertions
-    expect(screen.getByText()).toBeInTheDocument()
+    
+    const missionStatement = screen.getByText('Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living resort, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.')
+    
+    expect(missionStatement).toBeInTheDocument()
   })
 })

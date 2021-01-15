@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     paddingTop: 50, 
     paddingBottom: 80
   }
-});
+}); 
 
 function FindARoommate() {
   const classes = useStyles();
@@ -46,7 +46,7 @@ function FindARoommate() {
     .then(data => setAvailableResidents(data))
     .catch(err => console.log(err))
   }
-  
+
   const selectResident = (resident) => {
     setProfile(true)
     setSelectedResident(resident)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -17,17 +17,17 @@ const useStyles = makeStyles({
     display: "flex", 
     flexDirection: 'row', 
     justifyContent: 'center', 
-    paddingRight: 30,
+    paddingRight: '1.5vw',
   },
   logo: {
     paddingTop: 10,
-    height: 38
+    height: 37
   }
 });
 
 const NavBar = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

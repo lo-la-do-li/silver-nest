@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -12,10 +12,11 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 180,
   },
 }));
+
 function Form({selectSemester}) {
   const classes = useStyles();
-  const [semester, setSemester] = React.useState('');
-  const [open, setOpen] = React.useState(false);
+  const [semester, setSemester] = useState('');
+  const [open, setOpen] = useState(false);
 
   const handleChange = (event) => {
     const selectedSemester = event.target.value;

@@ -26,6 +26,7 @@ import turingHealthLogo from '../turingHealthLogo.png';
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: 60,
+    textAlign: 'left'
   },
   media: {
     height: 0,
@@ -50,8 +51,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#00acc1',
   },
   info: {
-    marginRight: '10vw',
-    marginLeft: '10vw'
+    marginRight: '5vw',
+    marginLeft: '5vw'
   },
   heartImg: {
     height: 38,

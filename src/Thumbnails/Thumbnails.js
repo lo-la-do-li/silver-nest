@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 24,
   },
   icon: {
-    color: 'white',
+    color: '#f8f8ff',
     cursor: 'point'
   },
   titleBar: {
@@ -40,7 +40,7 @@ function Thumbnails({availableResidents, allResidents, selectResident, semesterA
   const handleClick = (resident) => {
     selectResident(resident);
   }
-  
+
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
@@ -55,7 +55,7 @@ function Thumbnails({availableResidents, allResidents, selectResident, semesterA
               }}
               actionIcon={
                 <IconButton aria-label={`profile ${resident.name}`} onClick={() => handleClick(resident)}>
-                  <AccountBoxIcon fontSize='large' className={classes.icon} />
+                  <AccountBoxIcon fontSize='large' className={classes.icon} centerRipple />
                 </IconButton>
               }
             />

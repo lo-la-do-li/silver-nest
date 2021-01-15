@@ -33,12 +33,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function Thumbnails({availableResidents, allResidents, selectResident, semesterAvailable}) {
   const classes = useStyles();
 
   const handleClick = (resident) => {
-    selectResident(resident)
+    selectResident(resident);
   }
+  
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>

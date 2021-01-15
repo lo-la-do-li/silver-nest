@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -25,7 +25,7 @@ import turingHealthLogo from '../turingHealthLogo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: 60
+    marginTop: 60,
   },
   media: {
     height: 0,
@@ -49,6 +49,11 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: '#00acc1',
   },
+  info: {
+    // paddingRight: 50,
+    marginRight: '10vw',
+    marginLeft: '10vw'
+  },
   heartImg: {
     height: 38,
     paddingRight: 15
@@ -57,9 +62,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Profile({resident, exitProfileView}) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-  const [applied, setApplied] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpenDialogue = () => {
     setOpen(true);
@@ -77,11 +81,16 @@ function Profile({resident, exitProfileView}) {
     let noResident = '';
     exitProfileView(noResident);
   };
-
-  const handleApplyChange = () => {
-    setApplied(true)
-    handleCloseDialogue()
+   
+  const handleApplyAgree = () => {
+    resident.applied = true;
+    handleCloseDialogue();
   };
+  
+  const handleApplyDisagree = () => {
+    resident.applied = false;
+    handleCloseDialogue();
+  }
 
   return (
     <Card className={classes.root}>
@@ -104,47 +113,47 @@ function Profile({resident, exitProfileView}) {
           image={resident.photo}
           title={`${resident.name}'s Photo`} 
         />
-        <CardContent>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
+        <CardContent className={classes.info}>
+          <Typography variant="h6" color="textSecondary" >
             Age:
           </Typography>
-          <Typography paragraph>
-            {`${resident.age}`}
-          </Typography >
-          <Typography variant="h6" color="textSecondary" gutterBottom>
+            <Typography paragraph>
+              {`${resident.age}`}
+            </Typography >
+          <Typography variant="h6" color="textSecondary" >
             Interests:
           </Typography>
-          <Typography paragraph>
-            {`${resident.interests}`}
-          </Typography>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
+            <Typography paragraph>
+              {`${resident.interests}`}
+            </Typography>
+          <Typography variant="h6" color="textSecondary">
             Previous Career:
           </Typography>
-          <Typography paragraph>
-            {`${resident.previous_career}`}
-          </Typography>
-          <Typography variant="h6" color="textSecondary" gutterBottom>
+            <Typography paragraph>
+              {`${resident.previous_career}`}
+            </Typography>
+          <Typography variant="h6" color="textSecondary">
             Pets:
           </Typography>
-          <Typography paragraph>
-            {`${resident.pets}`}
-          </Typography>      
-          <Typography variant="h6" color="textSecondary" gutterBottom>
+            <Typography paragraph>
+              {`${resident.pets}`}
+            </Typography>      
+          <Typography variant="h6" color="textSecondary">
             Living Preferences:
           </Typography>      
-          <Typography paragraph>
-            {`${resident.living_preferences}`}
-          </Typography>     
-          <Typography variant="h6" color="textSecondary" gutterBottom>
+            <Typography paragraph>
+              {`${resident.living_preferences}`}
+            </Typography>     
+          <Typography variant="h6" color="textSecondary">
             Additional Notes:
           </Typography>      
-          <Typography paragraph>
-            {`${resident.additional_notes}`}
-          </Typography>    
+            <Typography paragraph>
+              {`${resident.additional_notes}`}
+            </Typography>    
         </CardContent>
             
           <CardActions disableSpacing>
-            {applied && 
+            {resident.applied && 
               <>
                 <img className={classes.heartImg} src={turingHealthLogo} alt="application-in-process" />
                 <Button variant="outlined" color="secondary" aria-label="application-pending">
@@ -152,7 +161,7 @@ function Profile({resident, exitProfileView}) {
                 </Button>
               </>
             }
-            {!applied && 
+            {!resident.applied && 
               <div>
                 <IconButton aria-label="no-application">
                   <FavoriteIcon aria-label="no-application"/>
@@ -173,11 +182,13 @@ function Profile({resident, exitProfileView}) {
                   </DialogContentText>
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={handleCloseDialogue} color="secondary">
+                    <Button 
+                      onClick={handleApplyDisagree} 
+                      color="secondary">
                       Disagree
                     </Button>
                     <Button 
-                      onClick={handleApplyChange} 
+                      onClick={handleApplyAgree} 
                       color="secondary" 
                       autoFocus>
                       Agree

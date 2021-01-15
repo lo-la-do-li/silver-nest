@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'space-around',
     flexDirection: 'row',
+    overflow: 'hidden',
     paddingTop: 20
     },
   container: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   box: {
     paddingTop: 1,
-    padding: theme.spacing(7),
+    padding: theme.spacing(4),
     paddingBottom: 25,
   },
   gridList: {
@@ -30,10 +31,11 @@ const useStyles = makeStyles(theme => ({
   },
   h1: {
     textAlign: 'left', 
-    color:"#7c8181"
+    color: '#7c8181',
+    fontSize: '2.4vw'
   },
   button: {
-    padding: 20,
+    padding: '1.5vw',
   }
   }));
 
@@ -41,6 +43,7 @@ function About() {
   const classes = useStyles();
   return (
     <Container className={classes.root}>
+      <div>
       <GridList cellHeight={160} className={classes.gridList} cols={3}>
         {tileData.map((tile) => (
           <GridListTile key={tile.img} cols={tile.cols || 1}>
@@ -48,6 +51,7 @@ function About() {
           </GridListTile>
         ))}
       </GridList>
+      </div>
       <div className={classes.container}>
         <Box className={classes.box}>
           <h1 className={classes.h1}>Turing School of Health Sciences has partnered with Mountain View Residences, a senior independent living resort, to match qualified Health Sciences Students to elderly residents living in the community based on compatibility of living preferences, needs, and schedules.</h1>

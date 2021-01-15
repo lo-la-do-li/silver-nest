@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   box: {
     padding: theme.spacing(5),
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(1),
     },
   },
@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     color: '#7c8181',
     fontSize: '2.2vw',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       fontSize: 20
     },
     
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
   button: {
     padding: 18,
     margin: 5,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       marginBottom: 15
     },
   }

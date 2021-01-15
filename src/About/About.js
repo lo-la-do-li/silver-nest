@@ -13,29 +13,46 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'space-around',
     flexDirection: 'row',
-    overflow: 'hidden',
-    paddingTop: 20
+    padding: theme.spacing(2),
+    // paddingTop: 20,
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column-reverse'
+    },
+  
     },
   container: {
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
+    // paddingTop: theme.spacing(1),
+    // paddingBottom: theme.spacing(1),
   },
   box: {
-    paddingTop: 1,
-    padding: theme.spacing(4),
-    paddingBottom: 25,
+    padding: theme.spacing(5),
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.spacing(1),
+    },
   },
   gridList: {
+    paddingTop: 20,
     cellHeight: 160,
     cols: 3,
+    [theme.breakpoints.down('sm')]: {
+      
+    },
   },
   h1: {
-    textAlign: 'left', 
+    textAlign: 'left',
     color: '#7c8181',
-    fontSize: '2.4vw'
+    fontSize: '2.2vw',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 20
+    },
+    
   },
   button: {
-    padding: '1.5vw',
+    padding: 18,
+    margin: 5,
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 15
+    },
   }
   }));
 

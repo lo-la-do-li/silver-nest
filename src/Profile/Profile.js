@@ -50,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#00acc1',
   },
   info: {
-    // paddingRight: 50,
     marginRight: '10vw',
     marginLeft: '10vw'
   },

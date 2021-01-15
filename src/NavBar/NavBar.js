@@ -17,11 +17,11 @@ const useStyles = makeStyles({
     display: "flex", 
     flexDirection: 'row', 
     justifyContent: 'center', 
-    paddingRight: 30,
+    paddingRight: '1.5vw',
   },
   logo: {
     paddingTop: 10,
-    height: 38
+    height: 37
   }
 });
 

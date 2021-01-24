@@ -20,10 +20,10 @@ const useStyles = makeStyles({
     color: "#7c8181",
     padding: "10vh",
   },
-  box: {
-    paddingTop: 50,
-    paddingBottom: 80,
-  },
+  // box: {
+  //   paddingTop: 50,
+  //   paddingBottom: 80,
+  // },
 });
 
 const AllResidents = () => {

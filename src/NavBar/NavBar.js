@@ -57,6 +57,12 @@ const NavBar = () => {
           to="/all-residents"
           value={2}
         />
+        <Tab
+          label="My Applications"
+          component={Link}
+          to="/my-applications"
+          value={3}
+        />
       </Tabs>
       <Box className={classes.box}>
         <img

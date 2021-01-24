@@ -6,5 +6,5 @@ export const saveResidentApplied = (store, resident) => {
 
 export const handleTabChange = (store, tabValue) => {
   store.setState({ tab: tabValue });
-  console.log(store.state.tab);
+  // console.log(store.state.tab);
 };

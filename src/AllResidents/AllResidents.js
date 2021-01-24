@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
   text: {
     color: "#7c8181",
-    padding: "10vh",
+    paddingTop: "5vh",
   },
   // box: {
   //   paddingTop: 50,

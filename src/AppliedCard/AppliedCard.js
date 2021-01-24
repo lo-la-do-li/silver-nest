@@ -12,14 +12,19 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import ChatOutlinedIcon from "@material-ui/icons/ChatOutlined";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 900,
+    maxWidth: 345,
+    //345
   },
   media: {
-    height: 200,
-    width: 400,
+    height: 300,
+    //140
+  },
+  buttonText: {
+    paddingLeft: 15,
   },
 });
 
@@ -41,7 +46,7 @@ const AppliedCard = ({
         <CardMedia
           className={classes.media}
           image={image}
-          title={`photo of ${resident.name}`}
+          title={`photo of ${name}`}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -56,12 +61,12 @@ const AppliedCard = ({
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        <div>
+          <Button size="small" color="primary">
+            <ChatOutlinedIcon color="secondary" />
+            <span className={classes.buttonText}>Message {name}</span>
+          </Button>
+        </div>
       </CardActions>
     </Card>
   );

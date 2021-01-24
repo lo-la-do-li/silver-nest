@@ -11,19 +11,22 @@ import AppliedCard from "../AppliedCard/AppliedCard";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    flexWrap: "nowrap",
-    flexGrow: 1,
   },
   container: {
     display: "grid",
-    fontSize: "20px",
     padding: "2vw",
     gridTemplateColumns: "repeat(3, 1fr)",
     gridGap: "50px",
+    [theme.breakpoints.only("xs")]: {
+      gridTemplateColumns: "repeat(1, 1fr)",
+    },
+    [theme.breakpoints.only("sm")]: {
+      gridTemplateColumns: "repeat(2, 1fr)",
+    },
   },
   text: {
     color: "#7c8181",
-    padding: "10vh",
+    paddingTop: "5vh",
   },
   paper: {
     padding: theme.spacing(1),
@@ -56,7 +59,7 @@ const MyApplications = () => {
   return (
     <>
       <Box className={classes.text}>
-        <h2>Residents I've Applied to</h2>
+        <h2>Applications Pending</h2>
       </Box>
       <div className={classes.root}>
         <Container className={classes.container}>{applications}</Container>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getResidentsBySemester } from "../apiCalls";
-import Form from "../Form/Form";
+import useGlobal from "../store";
+import { fetchAllResidents } from "../apiCalls";
 import Thumbnails from "../Thumbnails/Thumbnails";
 import Profile from "../Profile/Profile";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 
@@ -18,6 +18,7 @@ const useStyles = makeStyles({
   },
   text: {
     color: "#7c8181",
+    padding: "10vh",
   },
   box: {
     paddingTop: 50,
@@ -25,26 +26,21 @@ const useStyles = makeStyles({
   },
 });
 
-function FindARoommate() {
+const AllResidents = () => {
   const classes = useStyles();
-
-  const [semester, setSemester] = useState("");
-  const [availableResidents, setAvailableResidents] = useState([]);
-  const [selectedResident, setSelectedResident] = useState(null);
+  const [allResidents, setAllResidents] = useState([]);
   const [profile, setProfile] = useState(false);
+  const [selectedResident, setSelectedResident] = useState(null);
 
-  // useEffect(() => {}, [semester, availableResidents]);
+  useEffect(() => {
+    getAllResidents();
+  }, []);
 
-  const getAvailableResidents = async (semester) => {
-    await getResidentsBySemester(semester)
-      .then((data) => setAvailableResidents(data))
+  const getAllResidents = async () => {
+    await fetchAllResidents()
+      .then((residents) => setAllResidents(residents))
       .catch((err) => console.log(err));
   };
-  const selectSemester = (selectedSemester) => {
-    setSemester(selectedSemester);
-    getAvailableResidents(selectedSemester);
-  };
-
   const selectResident = (resident) => {
     setProfile(true);
     setSelectedResident(resident);
@@ -57,28 +53,28 @@ function FindARoommate() {
 
   return (
     <Container className={classes.root}>
+      <Box className={classes.text}>
+        <h2>All of Our Participating Residents</h2>
+        <h3>
+          To view residents by semester availability and apply, navigate to Find
+          A Roommate.
+        </h3>
+      </Box>
       {!profile ? (
         <>
-          <Box className={classes.box}>
-            <h1 className={classes.text}>Select a semester:</h1>
-            <Form className={classes.form} selectSemester={selectSemester} />
-          </Box>
-
           <Thumbnails
-            availableResidents={availableResidents}
+            availableResidents={allResidents}
             selectResident={selectResident}
-            semesterAvailable={semester}
           />
         </>
       ) : (
         <Profile
           resident={selectedResident}
           exitProfileView={exitProfileView}
-          isAvailable={true}
+          isAvailable={false}
         />
       )}
     </Container>
   );
-}
-
-export default FindARoommate;
+};
+export default AllResidents;

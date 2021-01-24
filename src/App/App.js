@@ -3,9 +3,9 @@ import FindARoommate from "../FindARoommate/FindARoommate";
 import "./App.css";
 import NavBar from "../NavBar/NavBar";
 import About from "../About/About";
+import AllResidents from "../AllResidents/AllResidents";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
 
 const theme = createMuiTheme({
   palette: {
@@ -27,6 +27,7 @@ function App() {
           <Redirect exact path="/" to="/about" />
           <Route path="/about" component={About} />
           <Route path="/find-a-roommate" component={FindARoommate} />
+          <Route path="/all-residents" component={AllResidents} />
         </Switch>
       </div>
     </MuiThemeProvider>

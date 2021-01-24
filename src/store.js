@@ -4,6 +4,7 @@ import * as actions from "./actions";
 
 const initialState = {
   tab: 0,
+  allResidents: [],
   residentsApplied: [],
 };
 

@@ -51,6 +51,12 @@ const NavBar = () => {
           to="/find-a-roommate"
           value={1}
         />
+        <Tab
+          label="All Residents"
+          component={Link}
+          to="/all-residents"
+          value={2}
+        />
       </Tabs>
       <Box className={classes.box}>
         <img

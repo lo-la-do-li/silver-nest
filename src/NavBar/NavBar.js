@@ -28,17 +28,12 @@ const useStyles = makeStyles({
 
 const NavBar = () => {
   const classes = useStyles();
-  // const [value, setValue] = useState(0);
   const [globalState, globalActions] = useGlobal();
   const [tab, setTab] = useGlobal((state) => state.tab);
 
   const handleTab = (event, tab) => {
     globalActions.handleTabChange(tab);
   };
-
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
 
   return (
     <Paper className={classes.root}>

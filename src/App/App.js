@@ -5,6 +5,7 @@ import NavBar from "../NavBar/NavBar";
 import About from "../About/About";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 const theme = createMuiTheme({
   palette: {

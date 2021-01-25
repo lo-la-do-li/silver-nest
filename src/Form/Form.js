@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Form({ selectSemester }) {
   const classes = useStyles();
-  // const [semester, setSemester] = useState("");
   const [open, setOpen] = useState(false);
 
   const [globalState, globalActions] = useGlobal();
@@ -25,8 +24,6 @@ function Form({ selectSemester }) {
   const handleChange = (event) => {
     const selectedSemester = event.target.value;
     globalActions.selectSemester(selectedSemester);
-    // selectSemester(selectedSemester);
-    // setSemester(selectedSemester);
   };
 
   const handleClose = () => {

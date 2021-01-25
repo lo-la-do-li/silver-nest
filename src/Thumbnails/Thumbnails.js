@@ -41,16 +41,10 @@ function Thumbnails({ availableResidents, selectResident }) {
   const [residentsApplied, setResidentsApplied] = useGlobal(
     (state) => state.residentsApplied
   );
-  // const disableApply = (resident) => {
-  //   const savedResidents = globalState.residentsApplied;
-  //   const savedId = savedResidents.find((res) => res.id === resident.id);
-  //   if (savedId) {
-  //     console.log("This resident has been applied for:", resident.name);
-  //   }
-  // };
+
   const handleClick = (resident) => {
     selectResident(resident);
-    globalActions.disableApply(resident);
+    globalActions.determineApplyStatus(resident);
   };
 
   return (

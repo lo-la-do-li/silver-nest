@@ -12,13 +12,18 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     justifyContent: "space-between",
-    flexGrow: 1,
+    // flexGrow: 1,
+    overflow: "scroll",
   },
   box: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     paddingRight: "1.5vw",
+  },
+  tabs: {
+    overflow: "scroll",
+    flexGrow: 1,
   },
   logo: {
     paddingTop: 10,
@@ -38,11 +43,12 @@ const NavBar = () => {
   return (
     <Paper className={classes.root}>
       <Tabs
+        className={classes.tabs}
         value={tab}
         onChange={handleTab}
         indicatorColor="secondary"
         textColor="secondary"
-        centered
+        // centered
       >
         <Tab label="About" component={Link} to="/about" value={0} />
         <Tab

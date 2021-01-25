@@ -86,19 +86,14 @@ function Profile({ resident, exitProfileView, isAvailable }) {
     let noResident = "";
     exitProfileView(noResident);
   };
-  // const disableApply = () => {
-  //   if(globalState.residentsApplied.includes(resident)) {
-  //     console.log('resident has been applied to', resident)
-  //   }
-  // }
+
   const handleApplyAgree = (resident) => {
-    resident.applied = true;
     globalActions.saveResidentApplied(resident);
+    globalActions.determineApplyStatus(resident);
     handleCloseDialogue();
   };
 
   const handleApplyDisagree = () => {
-    resident.applied = false;
     handleCloseDialogue();
   };
 
@@ -123,6 +118,7 @@ function Profile({ resident, exitProfileView, isAvailable }) {
         title={resident.name}
         subheader={resident.semester}
       />
+
       <CardMedia
         className={classes.media}
         image={resident.photo}
@@ -174,9 +170,6 @@ function Profile({ resident, exitProfileView, isAvailable }) {
         )}
         {!resident.applied && (
           <div>
-            <IconButton aria-label="no-application">
-              <FavoriteIcon aria-label="no-application" />
-            </IconButton>
             <Button
               onClick={handleOpenDialogue}
               variant="outlined"
@@ -229,7 +222,7 @@ function Profile({ resident, exitProfileView, isAvailable }) {
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
-      {/* )} */}
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent align="left" className={classes.medText}>
           <Typography

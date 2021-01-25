@@ -20,16 +20,29 @@ const useStyles = makeStyles({
   text: {
     color: "#7c8181",
   },
+  text2: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    color: "#5f6868",
+    paddingTop: "4vh",
+    paddingBottom: "3vh",
+    textAlign: "center",
+    fontSize: 18,
+  },
+  textSelect: {
+    color: "#c714148c",
+    paddingLeft: 6,
+    fontWeight: 600,
+  },
   box: {
     paddingTop: "5vh",
-    paddingBottom: 80,
+    paddingBottom: "1vh",
   },
 });
 
 function FindARoommate() {
   const classes = useStyles();
-
-  // const [semester, setSemester] = useState("");
   const [availableResidents, setAvailableResidents] = useState([]);
   const [selectedResident, setSelectedResident] = useState(null);
   const [profile, setProfile] = useState(false);
@@ -47,10 +60,6 @@ function FindARoommate() {
       .then((data) => setAvailableResidents(data))
       .catch((err) => console.log(err));
   };
-  // const selectSemester = (selectedSemester) => {
-  //   // setSemester(selectedSemester);
-  //   getAvailableResidents(selectedSemester);
-  // };
 
   const selectResident = (resident) => {
     setProfile(true);
@@ -62,20 +71,32 @@ function FindARoommate() {
     setSelectedResident(noResident);
   };
 
+  const semesterDisplay = (semester) => {
+    return semester.replace(/-/g, " ");
+  };
+
   return (
     <Container className={classes.root}>
       {!profile ? (
         <>
           <Box className={classes.box}>
-            <h1 className={classes.text}>Select a semester:</h1>
-            {/* <Form className={classes.form} selectSemester={selectSemester} /> */}
+            <h1 className={classes.text}>I am seeking housing for:</h1>
             <Form className={classes.form} />
+            {semester !== "" && (
+              <div className={classes.text2}>
+                <span>
+                  The following participants have available housing for{" "}
+                </span>{" "}
+                <span className={classes.textSelect}>
+                  {semesterDisplay(semester)}:
+                </span>
+              </div>
+            )}
           </Box>
 
           <Thumbnails
             availableResidents={availableResidents}
             selectResident={selectResident}
-            // semesterAvailable={semester}
           />
         </>
       ) : (

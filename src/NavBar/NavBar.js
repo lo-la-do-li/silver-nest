@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
@@ -52,17 +52,17 @@ const NavBar = () => {
           value={1}
         />
         <Tab
+          label="Applications"
+          component={Link}
+          to="/my-applications"
+          value={2}
+        />
+        {/* <Tab
           label="All Residents"
           component={Link}
           to="/all-residents"
           value={2}
-        />
-        <Tab
-          label="My Applications"
-          component={Link}
-          to="/my-applications"
-          value={3}
-        />
+        /> */}
       </Tabs>
       <Box className={classes.box}>
         <img

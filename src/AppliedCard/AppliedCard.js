@@ -1,10 +1,5 @@
-import React, { useState, useEffect } from "react";
-import useGlobal from "../store";
-import { fetchAllResidents } from "../apiCalls";
-import Profile from "../Profile/Profile";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -47,6 +42,7 @@ const AppliedCard = ({
           className={classes.media}
           image={image}
           title={`photo of ${name}`}
+          onClick={console.log(resident)}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">

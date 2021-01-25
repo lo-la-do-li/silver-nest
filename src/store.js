@@ -6,6 +6,7 @@ const initialState = {
   tab: 0,
   allResidents: [],
   residentsApplied: [],
+  semester: "",
 };
 
 const useGlobal = globalHook(React, initialState, actions);

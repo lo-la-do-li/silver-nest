@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useGlobal from "../store";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -15,13 +16,17 @@ const useStyles = makeStyles((theme) => ({
 
 function Form({ selectSemester }) {
   const classes = useStyles();
-  const [semester, setSemester] = useState("");
+  // const [semester, setSemester] = useState("");
   const [open, setOpen] = useState(false);
+
+  const [globalState, globalActions] = useGlobal();
+  const [semester, setSemester] = useGlobal((state) => state.semester);
 
   const handleChange = (event) => {
     const selectedSemester = event.target.value;
-    selectSemester(selectedSemester);
-    setSemester(selectedSemester);
+    globalActions.selectSemester(selectedSemester);
+    // selectSemester(selectedSemester);
+    // setSemester(selectedSemester);
   };
 
   const handleClose = () => {

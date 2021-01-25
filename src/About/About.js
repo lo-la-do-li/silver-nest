@@ -1,7 +1,6 @@
 import React from "react";
 import useGlobal from "../store";
 import { makeStyles } from "@material-ui/core/styles";
-// import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
@@ -78,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
 function About() {
   const classes = useStyles();
   const [globalState, globalActions] = useGlobal();
-  const [tab, setTab] = useGlobal((state) => state.tab);
+  // const [tab, setTab] = useGlobal((state) => state.tab);
 
   const handleTab = (tab) => {
     globalActions.handleTabChange(tab);

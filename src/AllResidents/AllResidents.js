@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import useGlobal from "../store";
+// import useGlobal from "../store";
 import { fetchAllResidents } from "../apiCalls";
 import Thumbnails from "../Thumbnails/Thumbnails";
 import Profile from "../Profile/Profile";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 
@@ -20,10 +20,6 @@ const useStyles = makeStyles({
     color: "#7c8181",
     paddingTop: "5vh",
   },
-  // box: {
-  //   paddingTop: 50,
-  //   paddingBottom: 80,
-  // },
 });
 
 const AllResidents = () => {

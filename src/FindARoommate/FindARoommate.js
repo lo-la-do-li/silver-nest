@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import useGlobal from "../store";
 import { getResidentsBySemester } from "../apiCalls";
 import Form from "../Form/Form";
 import Thumbnails from "../Thumbnails/Thumbnails";
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
     color: "#7c8181",
   },
   box: {
-    paddingTop: 50,
+    paddingTop: "5vh",
     paddingBottom: 80,
   },
 });
@@ -28,22 +29,28 @@ const useStyles = makeStyles({
 function FindARoommate() {
   const classes = useStyles();
 
-  const [semester, setSemester] = useState("");
+  // const [semester, setSemester] = useState("");
   const [availableResidents, setAvailableResidents] = useState([]);
   const [selectedResident, setSelectedResident] = useState(null);
   const [profile, setProfile] = useState(false);
 
-  // useEffect(() => {}, [semester, availableResidents]);
+  const [globalState, globalActions] = useGlobal();
+  const [semester, setSemester] = useGlobal((state) => state.semester);
+  useEffect(() => {
+    if (semester !== "") {
+      getAvailableResidents(semester);
+    }
+  }, [semester]);
 
   const getAvailableResidents = async (semester) => {
     await getResidentsBySemester(semester)
       .then((data) => setAvailableResidents(data))
       .catch((err) => console.log(err));
   };
-  const selectSemester = (selectedSemester) => {
-    setSemester(selectedSemester);
-    getAvailableResidents(selectedSemester);
-  };
+  // const selectSemester = (selectedSemester) => {
+  //   // setSemester(selectedSemester);
+  //   getAvailableResidents(selectedSemester);
+  // };
 
   const selectResident = (resident) => {
     setProfile(true);
@@ -61,13 +68,14 @@ function FindARoommate() {
         <>
           <Box className={classes.box}>
             <h1 className={classes.text}>Select a semester:</h1>
-            <Form className={classes.form} selectSemester={selectSemester} />
+            {/* <Form className={classes.form} selectSemester={selectSemester} /> */}
+            <Form className={classes.form} />
           </Box>
 
           <Thumbnails
             availableResidents={availableResidents}
             selectResident={selectResident}
-            semesterAvailable={semester}
+            // semesterAvailable={semester}
           />
         </>
       ) : (

@@ -1,4 +1,5 @@
 import React from "react";
+import useGlobal from "../store";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
@@ -33,11 +34,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Thumbnails({ availableResidents, selectResident, semesterAvailable }) {
+function Thumbnails({ availableResidents, selectResident }) {
   const classes = useStyles();
 
+  const [globalState, globalActions] = useGlobal();
+  const [residentsApplied, setResidentsApplied] = useGlobal(
+    (state) => state.residentsApplied
+  );
+  // const disableApply = (resident) => {
+  //   const savedResidents = globalState.residentsApplied;
+  //   const savedId = savedResidents.find((res) => res.id === resident.id);
+  //   if (savedId) {
+  //     console.log("This resident has been applied for:", resident.name);
+  //   }
+  // };
   const handleClick = (resident) => {
     selectResident(resident);
+    globalActions.disableApply(resident);
   };
 
   return (

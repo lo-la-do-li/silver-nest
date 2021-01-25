@@ -66,11 +66,11 @@ function Profile({ resident, exitProfileView, isAvailable }) {
   const [expanded, setExpanded] = useState(false);
   const [open, setOpen] = useState(false);
   const [globalState, globalActions] = useGlobal();
-  const [residentApplied, setResidentApplied] = useGlobal(
+  const [residentsApplied, setResidentsApplied] = useGlobal(
     (state) => state.residentsApplied
   );
 
-  const handleClickOpenDialogue = () => {
+  const handleOpenDialogue = () => {
     setOpen(true);
   };
 
@@ -86,7 +86,11 @@ function Profile({ resident, exitProfileView, isAvailable }) {
     let noResident = "";
     exitProfileView(noResident);
   };
-
+  // const disableApply = () => {
+  //   if(globalState.residentsApplied.includes(resident)) {
+  //     console.log('resident has been applied to', resident)
+  //   }
+  // }
   const handleApplyAgree = (resident) => {
     resident.applied = true;
     globalActions.saveResidentApplied(resident);
@@ -150,82 +154,82 @@ function Profile({ resident, exitProfileView, isAvailable }) {
         </Typography>
         <Typography paragraph>{`${resident.additional_notes}`}</Typography>
       </CardContent>
-      {isAvailable && (
-        <CardActions disableSpacing>
-          {resident.applied && (
-            <>
-              <img
-                className={classes.heartImg}
-                src={turingHealthLogo}
-                alt="application-in-process"
-              />
-              <Button
-                variant="outlined"
-                color="secondary"
-                aria-label="application-pending"
-              >
-                Application Pending
-              </Button>
-            </>
-          )}
-          {!resident.applied && (
-            <div>
-              <IconButton aria-label="no-application">
-                <FavoriteIcon aria-label="no-application" />
-              </IconButton>
-              <Button
-                onClick={handleClickOpenDialogue}
-                variant="outlined"
-                color="secondary"
-                aria-label="apply for housing"
-              >
-                Apply for Housing
-              </Button>
-              <Dialog
-                open={open}
-                onClose={handleCloseDialogue}
-                aria-labelledby="alert-dialog-apply-for-housing"
-                aria-describedby="alert-dialog-agree-or-disagree"
-              >
-                <DialogTitle id="alert-dialog-apply">
-                  Submit Application?
-                </DialogTitle>
-                <DialogContent>
-                  <DialogContentText id="alert-dialog-description">
-                    Choose "Agree" if you would like to submit your application
-                    to house with {resident.name} for the semester of{" "}
-                    {resident.semester}. You will be notified via email if you
-                    are selected for this residency position pending approval.
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleApplyDisagree} color="secondary">
-                    Disagree
-                  </Button>
-                  <Button
-                    onClick={() => handleApplyAgree(resident)}
-                    color="secondary"
-                    autoFocus
-                  >
-                    Agree
-                  </Button>
-                </DialogActions>
-              </Dialog>
-            </div>
-          )}
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show-medical-details"
-          >
-            <LocalHospitalRoundedIcon color="secondary" />
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
-      )}
+      {/* {isAvailable && ( */}
+      <CardActions disableSpacing>
+        {resident.applied && (
+          <>
+            <img
+              className={classes.heartImg}
+              src={turingHealthLogo}
+              alt="application-in-process"
+            />
+            <Button
+              variant="outlined"
+              color="secondary"
+              aria-label="application-pending"
+            >
+              Application Pending
+            </Button>
+          </>
+        )}
+        {!resident.applied && (
+          <div>
+            <IconButton aria-label="no-application">
+              <FavoriteIcon aria-label="no-application" />
+            </IconButton>
+            <Button
+              onClick={handleOpenDialogue}
+              variant="outlined"
+              color="secondary"
+              aria-label="apply for housing"
+            >
+              Apply for Housing
+            </Button>
+            <Dialog
+              open={open}
+              onClose={handleCloseDialogue}
+              aria-labelledby="alert-dialog-apply-for-housing"
+              aria-describedby="alert-dialog-agree-or-disagree"
+            >
+              <DialogTitle id="alert-dialog-apply">
+                Submit Application?
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                  Choose "Agree" if you would like to submit your application to
+                  house with {resident.name} for the semester of{" "}
+                  {resident.semester}. You will be notified via email if you are
+                  selected for this residency position pending approval.
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleApplyDisagree} color="secondary">
+                  Disagree
+                </Button>
+                <Button
+                  onClick={() => handleApplyAgree(resident)}
+                  color="secondary"
+                  autoFocus
+                >
+                  Agree
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </div>
+        )}
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show-medical-details"
+        >
+          <LocalHospitalRoundedIcon color="secondary" />
+          <ExpandMoreIcon />
+        </IconButton>
+      </CardActions>
+      {/* )} */}
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent align="left" className={classes.medText}>
           <Typography

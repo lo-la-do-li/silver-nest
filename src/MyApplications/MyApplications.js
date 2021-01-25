@@ -59,7 +59,7 @@ const MyApplications = () => {
   return (
     <>
       <Box className={classes.text}>
-        <h2>Applications Pending</h2>
+        <h1>Applications Pending</h1>
       </Box>
       <div className={classes.root}>
         <Container className={classes.container}>{applications}</Container>

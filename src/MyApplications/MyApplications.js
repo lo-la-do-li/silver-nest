@@ -52,7 +52,7 @@ const MyApplications = () => {
         image={resident.photo}
         age={resident.age}
         semester={resident.semester}
-        dateApplied={Date.now()}
+        dateApplied={resident.dateApplied}
       />
     );
   });

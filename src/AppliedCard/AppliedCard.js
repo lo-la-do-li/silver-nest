@@ -49,10 +49,10 @@ const AppliedCard = ({
             {name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Semester: {semester}
+            <b>Semester:</b> {semester}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Date Applied: {dateApplied}
+            <b> Date Applied:</b> {dateApplied}
           </Typography>
         </CardContent>
       </CardActionArea>

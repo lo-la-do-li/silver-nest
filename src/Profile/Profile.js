@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     align: "left",
     fontSize: "16",
     color: "textSecondary",
+    paddingLeft: "6vw",
   },
   avatar: {
     backgroundColor: "#00acc1",
@@ -56,8 +57,27 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "5vw",
   },
   heartImg: {
-    height: 38,
-    paddingRight: 15,
+    height: 40,
+    marginBottom: -17,
+    paddingRight: 10,
+    [theme.breakpoints.only("xs")]: {
+      display: "none",
+    },
+    [theme.breakpoints.only("sm")]: {
+      // fontSize: "2.4vw",
+    },
+  },
+  buttonDisabled: {
+    color: "#00acc1",
+    cursor: "auto",
+    [theme.breakpoints.only("xs")]: {
+      fontSize: "2.2vw",
+      // border: "none",
+      padding: 3,
+    },
+    // [theme.breakpoints.only("sm")]: {
+    //   fontSize: "2.4vw",
+    // },
   },
 }));
 
@@ -106,14 +126,79 @@ function Profile({ resident, exitProfileView, isAvailable }) {
           </Avatar>
         }
         action={
-          <IconButton
-            aria-label="cancel"
-            onClick={() => {
-              handleCloseProfile();
-            }}
-          >
-            <CancelPresentationIcon fontSize="large" />
-          </IconButton>
+          <>
+            {resident.applied && (
+              <>
+                <img
+                  className={classes.heartImg}
+                  src={turingHealthLogo}
+                  alt="application-in-process"
+                />
+                <Button
+                  className={classes.buttonDisabled}
+                  size="medium"
+                  variant="outlined"
+                  color="secondary"
+                  aria-label="application-pending"
+                  disableRipple={true}
+                >
+                  Application Pending
+                </Button>
+              </>
+            )}
+            {!resident.applied && (
+              <>
+                <Button
+                  onClick={handleOpenDialogue}
+                  variant="outlined"
+                  color="secondary"
+                  aria-label="apply for housing"
+                >
+                  Apply for Housing
+                </Button>
+
+                <Dialog
+                  open={open}
+                  onClose={handleCloseDialogue}
+                  aria-labelledby="alert-dialog-apply-for-housing"
+                  aria-describedby="alert-dialog-agree-or-disagree"
+                >
+                  <DialogTitle id="alert-dialog-apply">
+                    Submit Application?
+                  </DialogTitle>
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                      Choose "Agree" if you would like to submit your
+                      application to house with {resident.name} for the semester
+                      of {resident.semester}. You will be notified via email if
+                      you are selected for this residency position pending
+                      approval.
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleApplyDisagree} color="secondary">
+                      Disagree
+                    </Button>
+                    <Button
+                      onClick={() => handleApplyAgree(resident)}
+                      color="secondary"
+                      autoFocus
+                    >
+                      Agree
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+              </>
+            )}
+            <IconButton
+              aria-label="cancel"
+              onClick={() => {
+                handleCloseProfile();
+              }}
+            >
+              <CancelPresentationIcon fontSize="large" />
+            </IconButton>
+          </>
         }
         title={resident.name}
         subheader={resident.semester}
@@ -124,6 +209,7 @@ function Profile({ resident, exitProfileView, isAvailable }) {
         image={resident.photo}
         title={`${resident.name}'s Photo`}
       />
+
       <CardContent className={classes.info}>
         <Typography variant="h6" color="textSecondary">
           Age:
@@ -150,66 +236,8 @@ function Profile({ resident, exitProfileView, isAvailable }) {
         </Typography>
         <Typography paragraph>{`${resident.additional_notes}`}</Typography>
       </CardContent>
-      {/* {isAvailable && ( */}
+
       <CardActions disableSpacing>
-        {resident.applied && (
-          <>
-            <img
-              className={classes.heartImg}
-              src={turingHealthLogo}
-              alt="application-in-process"
-            />
-            <Button
-              variant="outlined"
-              color="secondary"
-              aria-label="application-pending"
-            >
-              Application Pending
-            </Button>
-          </>
-        )}
-        {!resident.applied && (
-          <div>
-            <Button
-              onClick={handleOpenDialogue}
-              variant="outlined"
-              color="secondary"
-              aria-label="apply for housing"
-            >
-              Apply for Housing
-            </Button>
-            <Dialog
-              open={open}
-              onClose={handleCloseDialogue}
-              aria-labelledby="alert-dialog-apply-for-housing"
-              aria-describedby="alert-dialog-agree-or-disagree"
-            >
-              <DialogTitle id="alert-dialog-apply">
-                Submit Application?
-              </DialogTitle>
-              <DialogContent>
-                <DialogContentText id="alert-dialog-description">
-                  Choose "Agree" if you would like to submit your application to
-                  house with {resident.name} for the semester of{" "}
-                  {resident.semester}. You will be notified via email if you are
-                  selected for this residency position pending approval.
-                </DialogContentText>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleApplyDisagree} color="secondary">
-                  Disagree
-                </Button>
-                <Button
-                  onClick={() => handleApplyAgree(resident)}
-                  color="secondary"
-                  autoFocus
-                >
-                  Agree
-                </Button>
-              </DialogActions>
-            </Dialog>
-          </div>
-        )}
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -218,13 +246,13 @@ function Profile({ resident, exitProfileView, isAvailable }) {
           aria-expanded={expanded}
           aria-label="show-medical-details"
         >
-          <LocalHospitalRoundedIcon color="secondary" />
+          <LocalHospitalRoundedIcon fontSize="large" color="secondary" />
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent align="left" className={classes.medText}>
+        <CardContent align="left" className={classes.info}>
           <Typography
             paragraph="true"
             align="left"
@@ -233,7 +261,7 @@ function Profile({ resident, exitProfileView, isAvailable }) {
           >
             <b>Medical Information</b>
           </Typography>
-          <Typography className={classes.medText}>
+          <Typography>
             <b>Height:</b> {`${resident.height}`}
           </Typography>
           <Typography>

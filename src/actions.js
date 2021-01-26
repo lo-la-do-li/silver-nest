@@ -17,6 +17,13 @@ export const determineApplyStatus = (store, resident) => {
   const savedId = savedResidents.find((res) => res.id === resident.id);
   if (savedId) {
     resident.applied = true;
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + "/" + dd + "/" + yyyy;
+    resident.dateApplied = today;
     console.log("This resident has been applied for:", resident.applied);
   }
 };

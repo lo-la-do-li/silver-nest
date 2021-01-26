@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    padding: "1.2vh",
+    padding: "3vh",
     margin: "10vh",
     fontSize: "1.2vw",
     [theme.breakpoints.down("sm")]: {

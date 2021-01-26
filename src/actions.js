@@ -27,3 +27,14 @@ export const determineApplyStatus = (store, resident) => {
     console.log("This resident has been applied for:", resident.applied);
   }
 };
+
+export const addMessageToApplied = (store, resident, message) => {
+  if (resident.applied) {
+    resident.message = message;
+  }
+  console.log(
+    "Your message to this resident is:",
+    resident.message,
+    store.state.residentsApplied
+  );
+};

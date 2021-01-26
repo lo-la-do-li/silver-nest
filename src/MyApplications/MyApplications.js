@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import useGlobal from "../store";
-import { fetchAllResidents } from "../apiCalls";
-// import Thumbnails from "../Thumbnails/Thumbnails";
-// import Profile from "../Profile/Profile";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import AppliedCard from "../AppliedCard/AppliedCard";
+import ChatBox from "../ChatBox/ChatBox";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,7 +50,9 @@ const MyApplications = () => {
         image={resident.photo}
         age={resident.age}
         semester={resident.semester}
+        applied={resident.applied}
         dateApplied={resident.dateApplied}
+        message={resident.message}
       />
     );
   });

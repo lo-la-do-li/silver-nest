@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import useGlobal from "../store";
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -13,15 +14,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Form({selectSemester}) {
+function Form({ selectSemester }) {
   const classes = useStyles();
-  const [semester, setSemester] = useState('');
   const [open, setOpen] = useState(false);
+
+  const [globalState, globalActions] = useGlobal();
+  const [semester, setSemester] = useGlobal((state) => state.semester);
 
   const handleChange = (event) => {
     const selectedSemester = event.target.value;
-    selectSemester(selectedSemester);
-    setSemester(selectedSemester);
+    globalActions.selectSemester(selectedSemester);
   };
 
   const handleClose = () => {
@@ -45,9 +47,9 @@ function Form({selectSemester}) {
           value={semester}
           onChange={handleChange}
         >
-          <MenuItem value='Spring-2021'>Spring 2021</MenuItem>
-          <MenuItem value='Summer-2021'>Summer 2021</MenuItem>
-          <MenuItem value='Fall-2021'>Fall 2021</MenuItem>
+          <MenuItem value="Spring-2021">Spring 2021</MenuItem>
+          <MenuItem value="Summer-2021">Summer 2021</MenuItem>
+          <MenuItem value="Fall-2021">Fall 2021</MenuItem>
         </Select>
       </FormControl>
     </div>
@@ -55,7 +57,7 @@ function Form({selectSemester}) {
 }
 
 Form.propTypes = {
-  selectSemester: PropTypes.func
-}
+  selectSemester: PropTypes.func,
+};
 
 export default Form;

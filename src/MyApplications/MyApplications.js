@@ -4,7 +4,6 @@ import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import AppliedCard from "../AppliedCard/AppliedCard";
-import ChatBox from "../ChatBox/ChatBox";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,13 +50,13 @@ const MyApplications = () => {
         semester={resident.semester}
         applied={resident.applied}
         dateApplied={resident.dateApplied}
-        message={resident.message}
+        // message={resident.message}
       />
     );
   });
-  useEffect(() => {
-    console.log("Applications mounted ");
-  }, [applications]);
+  // useEffect(() => {
+  //   setResidentsApplied({ residentsApplied });
+  // }, []);
 
   return (
     <>

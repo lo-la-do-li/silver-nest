@@ -93,7 +93,7 @@ const AppliedCard = ({
   semester,
   dateApplied,
   applied,
-  message,
+  // message,
 }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
@@ -102,11 +102,14 @@ const AppliedCard = ({
   const [residentsApplied, setResidentsApplied] = useGlobal(
     (state) => state.residentsApplied
   );
+  const [message, setMessage] = useState("");
   // useEffect(() => {
 
   // }, [message]);
 
-  useEffect(() => console.log("AppliedCard mounted"), []);
+  useEffect(() => {
+    setMessage(resident.message);
+  }, [resident.message]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -121,8 +124,10 @@ const AppliedCard = ({
     // event.preventDefault();
     const newMessage = messageValue;
     const residentToMessage = resident;
+    setMessage(newMessage);
     globalActions.addMessageToApplied(residentToMessage, newMessage);
     setMessageValue("");
+    // const addedMessage = resident.message;
 
     console.log(resident.message);
   };
@@ -134,7 +139,7 @@ const AppliedCard = ({
           className={classes.media}
           image={image}
           title={`photo of ${name}`}
-          onClick={console.log("resident on photo click", resident.message)}
+          // onClick={console.log("resident on photo click", resident.message)}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">

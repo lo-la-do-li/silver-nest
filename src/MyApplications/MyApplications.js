@@ -39,7 +39,6 @@ const MyApplications = () => {
   const [residentsApplied, setResidentsApplied] = useGlobal(
     (state) => state.residentsApplied
   );
-
   const applications = residentsApplied.map((resident) => {
     return (
       <AppliedCard
@@ -56,6 +55,10 @@ const MyApplications = () => {
       />
     );
   });
+  useEffect(() => {
+    console.log("Applications mounted ");
+  }, [applications]);
+
   return (
     <>
       <Box className={classes.text}>

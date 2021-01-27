@@ -28,10 +28,15 @@ export const determineApplyStatus = (store, resident) => {
   }
 };
 
-export const addMessageToApplied = (store, resident, message) => {
-  if (resident.applied) {
-    resident.message = message;
+export const addMessageToApplied = (store, resident, newMessage) => {
+  // event.preventDefault();
+  const savedResidents = store.state.residentsApplied;
+  const savedResident = savedResidents.find((res) => res.id === resident.id);
+  console.log(savedResident);
+  if (savedResident) {
+    return (resident.message = newMessage);
   }
+
   console.log(
     "Your message to this resident is:",
     resident.message,

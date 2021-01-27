@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useGlobal from "../store";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
     // margin: `${theme.spacing(1)}px auto`,
     padding: theme.spacing(2),
+    backgroundColor: "#9a9ca21f",
   },
   avatar: {
     backgroundColor: "#00acc1",
@@ -73,6 +74,12 @@ const useStyles = makeStyles((theme) => ({
   },
   chatBox: {
     // padding: 0,
+  },
+  userChatItem: {
+    justifyContent: "flex-end",
+  },
+  residentChatItem: {
+    justifyContent: "flex-start",
   },
 }));
 
@@ -95,6 +102,11 @@ const AppliedCard = ({
   const [residentsApplied, setResidentsApplied] = useGlobal(
     (state) => state.residentsApplied
   );
+  // useEffect(() => {
+
+  // }, [message]);
+
+  useEffect(() => console.log("AppliedCard mounted"), []);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -105,9 +117,14 @@ const AppliedCard = ({
     setMessageValue(event.target.value);
   };
 
-  const handleSendMessage = (resident, message) => {
-    console.log(messageValue);
-    globalActions.addMessageToApplied(resident, message);
+  const handleSendMessage = () => {
+    // event.preventDefault();
+    const newMessage = messageValue;
+    const residentToMessage = resident;
+    globalActions.addMessageToApplied(residentToMessage, newMessage);
+    setMessageValue("");
+
+    console.log(resident.message);
   };
 
   return (
@@ -117,7 +134,7 @@ const AppliedCard = ({
           className={classes.media}
           image={image}
           title={`photo of ${name}`}
-          onClick={console.log(resident)}
+          onClick={console.log("resident on photo click", resident.message)}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -161,7 +178,7 @@ const AppliedCard = ({
         <CardContent>
           <Grid container className={classes.chatBox}>
             <List className={classes.messageArea}>
-              <ListItem key="1">
+              <ListItem className={classes.residentChatItem} key="1">
                 <ListItemIcon style={{ paddingRight: "0px" }}>
                   <Avatar
                     // src={image}
@@ -180,36 +197,28 @@ const AppliedCard = ({
                     </Grid>
                   </Grid>
                 </Paper>
-                {/* <ListItemText
-                  align="left"
-                  primary={`Hello, I'm ${name}`}
-                ></ListItemText> */}
               </ListItem>
-              {message !== "" && (
-                <ListItem key={name}>
-                  <Paper className={classes.paper}>
-                    <Grid container wrap="nowrap" spacing={2}>
-                      <Grid item>
-                        <Typography>{message}</Typography>
-                      </Grid>
+              {/* {message !== "" && ( */}
+              <ListItem className={classes.userChatItem} key={message}>
+                <Paper className={classes.paper}>
+                  <Grid container wrap="nowrap" spacing={2}>
+                    <Grid item>
+                      <Typography>{message}</Typography>
                     </Grid>
-                  </Paper>
-                  {/* <ListItemText
-                    // style={{ paddingRight: "15px" }}
-                    align="left"
-                    primary={message}
-                  ></ListItemText> */}
-                  <ListItemIcon style={{ paddingLeft: "15px" }}>
-                    <Avatar
-                      aria-label="user's avatar"
-                      size="small"
-                      className={classes.avatar2}
-                    >
-                      U
-                    </Avatar>
-                  </ListItemIcon>
-                </ListItem>
-              )}
+                  </Grid>
+                </Paper>
+
+                <ListItemIcon style={{ paddingLeft: "15px" }}>
+                  <Avatar
+                    aria-label="user's avatar"
+                    size="small"
+                    className={classes.avatar2}
+                  >
+                    U
+                  </Avatar>
+                </ListItemIcon>
+              </ListItem>
+              {/* )} */}
             </List>
 
             <Grid container style={{ padding: "30px 15px 20px 15px" }}>
@@ -229,9 +238,9 @@ const AppliedCard = ({
                   size="small"
                   color="primary"
                   aria-label="send-message"
-                  onSubmit={handleSendMessage(resident, messageValue)}
+                  onClick={handleSendMessage}
                 >
-                  <SendIcon backgroundColor="secondary" />
+                  <SendIcon />
                 </Fab>
               </Grid>
             </Grid>

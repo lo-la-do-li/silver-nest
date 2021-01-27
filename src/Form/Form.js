@@ -11,10 +11,12 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 180,
+    paddingTop: "1vh",
+    paddingBottom: "3vh]=[",
   },
 }));
 
-function Form({ selectSemester }) {
+function Form() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -39,6 +41,7 @@ function Form({ selectSemester }) {
       <FormControl className={classes.formControl} semester={semester}>
         <InputLabel id="dropdown-menu">Choose a semester</InputLabel>
         <Select
+          style={{ color: "#df757d" }}
           labelId="dropdown-menu"
           id="semester-dropdown"
           open={open}

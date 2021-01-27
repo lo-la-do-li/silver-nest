@@ -7,6 +7,7 @@ import Profile from "../Profile/Profile";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
@@ -14,11 +15,9 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
   },
-  form: {
-    marginTop: -20,
-  },
   text: {
     color: "#7c8181",
+    paddingBottom: "3vh",
   },
   text2: {
     display: "flex",
@@ -36,8 +35,8 @@ const useStyles = makeStyles({
     fontWeight: 600,
   },
   box: {
-    paddingTop: "5vh",
-    paddingBottom: "1vh",
+    paddingTop: "8vh",
+    paddingBottom: "10vh",
   },
 });
 
@@ -80,16 +79,26 @@ function FindARoommate() {
       {!profile ? (
         <>
           <Box className={classes.box}>
-            <h1 className={classes.text}>I am seeking housing for:</h1>
-            <Form className={classes.form} />
-            {semester !== "" && (
+            <div className={classes.text}>
+              <Typography
+                variant="button"
+                color="textSecondary"
+                style={{ fontSize: "24px" }}
+                capitalize={true}
+              >
+                I am seeking housing for:
+              </Typography>
+            </div>
+            {/* <h1 className={classes.text}>I am seeking housing for:</h1> */}
+            <Form />
+            {/* {semester !== "" && (
               <div className={classes.text2}>
                 <span>Residents with available housing for </span>{" "}
                 <span className={classes.textSelect}>
                   {semesterDisplay(semester)}:
                 </span>
               </div>
-            )}
+            )} */}
           </Box>
 
           <Thumbnails

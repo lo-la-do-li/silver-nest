@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "5vh",
     [theme.breakpoints.only("xs")]: {
       fontSize: "3vw",
-      paddingTop: "2vh",
+      paddingTop: "3vh",
     },
     [theme.breakpoints.only("sm")]: {
       fontSize: "2.4vw",
@@ -61,12 +61,25 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    padding: "3vh",
-    margin: "10vh",
+    padding: "1.2vw",
+    margin: "8vh",
     fontSize: "1.2vw",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.only("xs")]: {
       fontSize: "2vw",
+      padding: "1.2vh",
       margin: "3vh",
+    },
+    [theme.breakpoints.only("sm")]: {
+      margin: "3vh",
+      fontSize: "1.8vw",
+      padding: "1.5vh",
+      margin: "5vh",
+    },
+    [theme.breakpoints.only("md")]: {
+      margin: "3vh",
+      fontSize: "1.5vw",
+      padding: "2vh",
+      margin: "5vh",
     },
     [theme.breakpoints.up("xl")]: {
       fontSize: "1.2vw",
@@ -77,7 +90,6 @@ const useStyles = makeStyles((theme) => ({
 function About() {
   const classes = useStyles();
   const [globalState, globalActions] = useGlobal();
-  // const [tab, setTab] = useGlobal((state) => state.tab);
 
   const handleTab = (tab) => {
     globalActions.handleTabChange(tab);

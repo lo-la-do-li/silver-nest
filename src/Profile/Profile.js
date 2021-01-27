@@ -13,7 +13,6 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LocalHospitalRoundedIcon from "@material-ui/icons/LocalHospitalRounded";
 import PropTypes from "prop-types";
-// import CloseIcon from "@material-ui/icons/CancelPresentation";
 import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -75,9 +74,6 @@ const useStyles = makeStyles((theme) => ({
       // border: "none",
       padding: 3,
     },
-    // [theme.breakpoints.only("sm")]: {
-    //   fontSize: "2.4vw",
-    // },
   },
 }));
 

@@ -25,14 +25,20 @@ import SendIcon from "@material-ui/icons/Send";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 375,
-    paddingTop: "5vh",
+    maxWidth: 345,
+    paddingTop: "3vh",
     paddingBottom: "10px",
     //345
   },
   media: {
-    height: "50vh",
+    height: "40vh",
     //140
+  },
+  content: {
+    padding: "10px",
+    // marginLeft: "25%",
+    color: "#31424c",
+    textAlign: "left",
   },
   buttonBar: {
     display: "flex",
@@ -53,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     maxWidth: 400,
-    padding: theme.spacing(2),
+    padding: "1.5vh",
     backgroundColor: "#9a9ca21f",
   },
   avatar: {
@@ -66,10 +72,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     width: "100%",
     overflowY: "auto",
-    padding: 4,
-  },
-  chatBox: {
-    // padding: 0,
+    padding: 1,
   },
   userChatItem: {
     justifyContent: "flex-end",
@@ -138,15 +141,20 @@ const AppliedCard = ({
           title={`photo of ${name}`}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {name}
-          </Typography>
-          <Typography variant="body2" color="#31424c" component="p">
-            <b>Semester:</b> {semester}
-          </Typography>
-          <Typography variant="body2" color="#31424c" component="p">
-            <b> Date Applied:</b> {dateApplied}
-          </Typography>
+          <div className={classes.content}>
+            <Typography gutterBottom variant="h5" component="h2">
+              {name}
+            </Typography>
+            <Typography variant="body2" component="p">
+              <b>Semester : </b> {semester}
+            </Typography>
+            <Typography variant="body2" component="p">
+              <b> Date Applied : </b> {dateApplied}
+            </Typography>
+            <Typography variant="body2" component="p">
+              <b> Status :</b> Pending Approval
+            </Typography>
+          </div>
         </CardContent>
       </CardActionArea>
       <Divider />
@@ -157,7 +165,6 @@ const AppliedCard = ({
               variant="button"
               color="textSecondary"
               style={{ paddingRight: "10px" }}
-              capitalize={true}
             >
               Message {name}
             </Typography>
@@ -177,8 +184,9 @@ const AppliedCard = ({
         </>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <Divider />
         <CardContent>
-          <Grid container className={classes.chatBox}>
+          <Grid container>
             <List className={classes.messageArea}>
               <ListItem className={classes.residentChatItem} key="1">
                 <ListItemIcon style={{ paddingRight: "0px" }}>
@@ -222,8 +230,8 @@ const AppliedCard = ({
               </ListItem>
             </List>
 
-            <Grid container style={{ padding: "30px 15px 20px 15px" }}>
-              <Grid item xs={11}>
+            <Grid container style={{ padding: "30px 0px 15px 20px" }}>
+              <Grid item xs={10}>
                 <form onSubmit={submitHandler}>
                   <TextField
                     id="outlined-basic-email"

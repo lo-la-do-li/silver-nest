@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
       margin: "3vh",
       fontSize: "1.8vw",
       padding: "1.5vh",
-      margin: "5vh",
+      margin: "4.5vh",
     },
     [theme.breakpoints.only("md")]: {
       margin: "3vh",

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useGlobal from "../store";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import AppliedCard from "../AppliedCard/AppliedCard";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,17 +15,23 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     padding: "2vw",
     gridTemplateColumns: "repeat(3, 1fr)",
-    gridGap: "50px",
+    gridGap: "30px",
+    placeItems: "center",
     [theme.breakpoints.only("xs")]: {
       gridTemplateColumns: "repeat(1, 1fr)",
+      placeItems: "stretch",
     },
     [theme.breakpoints.only("sm")]: {
       gridTemplateColumns: "repeat(2, 1fr)",
     },
+    [theme.breakpoints.only("md")]: {
+      gridTemplateColumns: "repeat(3, 1fr)",
+    },
   },
-  text: {
+  box: {
+    paddingTop: "8vh",
+    paddingBottom: "5vh",
     color: "#7c8181",
-    paddingTop: "5vh",
   },
   paper: {
     padding: theme.spacing(1),
@@ -34,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 
 const MyApplications = () => {
   const classes = useStyles();
-  const [globalState, globalActions] = useGlobal();
   const [residentsApplied, setResidentsApplied] = useGlobal(
     (state) => state.residentsApplied
   );
@@ -55,9 +62,17 @@ const MyApplications = () => {
 
   return (
     <>
-      <Box className={classes.text}>
-        <h1>Applications Pending</h1>
+      <Box className={classes.box}>
+        <Typography
+          variant="button"
+          color="textSecondary"
+          style={{ fontSize: "24px" }}
+          capitalize={true}
+        >
+          My Applications
+        </Typography>
       </Box>
+      <Divider />
       <div className={classes.root}>
         <Container className={classes.container}>{applications}</Container>
       </div>

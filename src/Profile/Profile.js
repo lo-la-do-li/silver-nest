@@ -62,17 +62,20 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.only("xs")]: {
       display: "none",
     },
-    [theme.breakpoints.only("sm")]: {
-      // fontSize: "2.4vw",
-    },
+    [theme.breakpoints.only("sm")]: {},
   },
   buttonDisabled: {
     color: "#00acc1",
     cursor: "auto",
     [theme.breakpoints.only("xs")]: {
       fontSize: "2.2vw",
-      // border: "none",
       padding: 3,
+    },
+  },
+  button: {
+    [theme.breakpoints.only("xs")]: {
+      fontSize: "2.5vw",
+      padding: 6,
     },
   },
 }));
@@ -82,9 +85,6 @@ function Profile({ resident, exitProfileView, isAvailable }) {
   const [expanded, setExpanded] = useState(false);
   const [open, setOpen] = useState(false);
   const [globalState, globalActions] = useGlobal();
-  const [residentsApplied, setResidentsApplied] = useGlobal(
-    (state) => state.residentsApplied
-  );
 
   const handleOpenDialogue = () => {
     setOpen(true);
@@ -145,6 +145,7 @@ function Profile({ resident, exitProfileView, isAvailable }) {
             {!resident.applied && (
               <>
                 <Button
+                  className={classes.button}
                   onClick={handleOpenDialogue}
                   variant="outlined"
                   color="secondary"
@@ -192,7 +193,7 @@ function Profile({ resident, exitProfileView, isAvailable }) {
                 handleCloseProfile();
               }}
             >
-              <CloseIcon fontSize="large" />
+              <CloseIcon fontSize="medium" />
             </IconButton>
           </>
         }

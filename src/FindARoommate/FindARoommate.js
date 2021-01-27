@@ -45,7 +45,6 @@ function FindARoommate() {
   const [availableResidents, setAvailableResidents] = useState([]);
   const [selectedResident, setSelectedResident] = useState(null);
   const [profile, setProfile] = useState(false);
-  const [globalState, globalActions] = useGlobal();
   const [semester, setSemester] = useGlobal((state) => state.semester);
 
   useEffect(() => {
@@ -70,10 +69,6 @@ function FindARoommate() {
     setSelectedResident(noResident);
   };
 
-  const semesterDisplay = (semester) => {
-    return semester.replace(/-/g, " ");
-  };
-
   return (
     <Container className={classes.root}>
       {!profile ? (
@@ -89,16 +84,7 @@ function FindARoommate() {
                 I am seeking housing for:
               </Typography>
             </div>
-            {/* <h1 className={classes.text}>I am seeking housing for:</h1> */}
             <Form />
-            {/* {semester !== "" && (
-              <div className={classes.text2}>
-                <span>Residents with available housing for </span>{" "}
-                <span className={classes.textSelect}>
-                  {semesterDisplay(semester)}:
-                </span>
-              </div>
-            )} */}
           </Box>
 
           <Thumbnails

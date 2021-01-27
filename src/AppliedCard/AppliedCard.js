@@ -117,6 +117,10 @@ const AppliedCard = ({
     setMessageValue(event.target.value);
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   const handleSendMessage = () => {
     const newMessage = messageValue;
     const residentToMessage = resident;
@@ -220,7 +224,7 @@ const AppliedCard = ({
 
             <Grid container style={{ padding: "30px 15px 20px 15px" }}>
               <Grid item xs={11}>
-                <form>
+                <form onSubmit={submitHandler}>
                   <TextField
                     id="outlined-basic-email"
                     label="Type a message"

@@ -13,7 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LocalHospitalRoundedIcon from "@material-ui/icons/LocalHospitalRounded";
 import PropTypes from "prop-types";
-import CancelPresentationIcon from "@material-ui/icons/CancelPresentation";
+// import CloseIcon from "@material-ui/icons/CancelPresentation";
+import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -195,7 +196,7 @@ function Profile({ resident, exitProfileView, isAvailable }) {
                 handleCloseProfile();
               }}
             >
-              <CancelPresentationIcon fontSize="large" />
+              <CloseIcon fontSize="large" />
             </IconButton>
           </>
         }

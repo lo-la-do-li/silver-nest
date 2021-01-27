@@ -48,7 +48,6 @@ const MyApplications = () => {
         image={resident.photo}
         age={resident.age}
         semester={resident.semester}
-        applied={resident.applied}
         dateApplied={resident.dateApplied}
       />
     );

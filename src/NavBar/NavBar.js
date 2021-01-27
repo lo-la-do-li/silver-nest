@@ -22,7 +22,6 @@ const useStyles = makeStyles({
     paddingRight: "1.5vw",
   },
   tabs: {
-    // overflow: "scroll",
     flexGrow: 1,
   },
   logo: {

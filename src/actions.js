@@ -28,7 +28,6 @@ export const determineApplyStatus = (store, resident) => {
 };
 
 export const addMessageToApplied = (store, resident, newMessage) => {
-  // event.preventDefault();
   const savedResidents = store.state.residentsApplied;
   const savedResident = savedResidents.find((res) => res.id === resident.id);
   console.log(savedResident);

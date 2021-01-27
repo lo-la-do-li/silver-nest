@@ -9,8 +9,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Collapse from "@material-ui/core/Collapse";
 import Typography from "@material-ui/core/Typography";
 import ChatOutlinedIcon from "@material-ui/icons/ChatOutlined";
-
-// import ChatBox from "../ChatBox/ChatBox";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
@@ -18,7 +16,6 @@ import Grid from "@material-ui/core/Grid";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 import TextField from "@material-ui/core/TextField";
@@ -56,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     maxWidth: 400,
-    // margin: `${theme.spacing(1)}px auto`,
     padding: theme.spacing(2),
     backgroundColor: "#9a9ca21f",
   },
@@ -92,13 +88,11 @@ const AppliedCard = ({
   age,
   semester,
   dateApplied,
-  applied,
-  // message,
 }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const [messageValue, setMessageValue] = useState("");
-  const [message, setMessage] = useState("...");
+  const [message, setMessage] = useState("");
   const [globalState, globalActions] = useGlobal();
   const [residentsApplied, setResidentsApplied] = useGlobal(
     (state) => state.residentsApplied
@@ -108,10 +102,8 @@ const AppliedCard = ({
     let updatedMsg;
     if (resident.message === undefined) {
       updatedMsg = "...";
-      // setMessage("...");
     } else {
       updatedMsg = resident.message;
-      // setMessage(resident.message);
     }
     setMessage(updatedMsg);
   }, [resident.message]);
@@ -126,7 +118,6 @@ const AppliedCard = ({
   };
 
   const handleSendMessage = () => {
-    // event.preventDefault();
     const newMessage = messageValue;
     const residentToMessage = resident;
     setMessage(newMessage);

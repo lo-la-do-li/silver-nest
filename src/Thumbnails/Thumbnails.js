@@ -38,9 +38,6 @@ function Thumbnails({ availableResidents, selectResident }) {
   const classes = useStyles();
 
   const [globalState, globalActions] = useGlobal();
-  const [residentsApplied, setResidentsApplied] = useGlobal(
-    (state) => state.residentsApplied
-  );
 
   const handleClick = (resident) => {
     selectResident(resident);

@@ -1,6 +1,6 @@
-# [Silver Nest](https://silver-nest.herokuapp.com/about) *group project*
-
-By: [Lola Dolinsky](https://github.com/lo-la-do-li), [Chadrick Dickerson](https://github.com/chadrick-d-dev), and [Cameron Romo](https://github.com/cameronRomo)
+# [SilverNest, v2](https://silver-nest-app.herokuapp.com/about) *a full-stack project*
+Updated by: [Lola Dolinsky](https://github.com/lo-la-do-li)
+[Original SilverNest](https://silver-nest.herokuapp.com/about) developed with: [Chadrick Dickerson](https://github.com/chadrick-d-dev), and [Cameron Romo](https://github.com/cameronRomo)
 
 ## Table of Contents
 

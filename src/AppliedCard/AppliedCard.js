@@ -98,17 +98,22 @@ const AppliedCard = ({
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const [messageValue, setMessageValue] = useState("");
+  const [message, setMessage] = useState("...");
   const [globalState, globalActions] = useGlobal();
   const [residentsApplied, setResidentsApplied] = useGlobal(
     (state) => state.residentsApplied
   );
-  const [message, setMessage] = useState("");
-  // useEffect(() => {
-
-  // }, [message]);
 
   useEffect(() => {
-    setMessage(resident.message);
+    let updatedMsg;
+    if (resident.message === undefined) {
+      updatedMsg = "...";
+      // setMessage("...");
+    } else {
+      updatedMsg = resident.message;
+      // setMessage(resident.message);
+    }
+    setMessage(updatedMsg);
   }, [resident.message]);
 
   const handleExpandClick = () => {
@@ -127,9 +132,6 @@ const AppliedCard = ({
     setMessage(newMessage);
     globalActions.addMessageToApplied(residentToMessage, newMessage);
     setMessageValue("");
-    // const addedMessage = resident.message;
-
-    console.log(resident.message);
   };
 
   return (
@@ -139,7 +141,6 @@ const AppliedCard = ({
           className={classes.media}
           image={image}
           title={`photo of ${name}`}
-          // onClick={console.log("resident on photo click", resident.message)}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -161,7 +162,7 @@ const AppliedCard = ({
               variant="button"
               color="textSecondary"
               style={{ paddingRight: "10px" }}
-              capitalize
+              capitalize={true}
             >
               Message {name}
             </Typography>
@@ -171,6 +172,7 @@ const AppliedCard = ({
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
             })}
+            value={id}
             onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="show more"
@@ -203,7 +205,7 @@ const AppliedCard = ({
                   </Grid>
                 </Paper>
               </ListItem>
-              {/* {message !== "" && ( */}
+
               <ListItem className={classes.userChatItem} key={message}>
                 <Paper className={classes.paper}>
                   <Grid container wrap="nowrap" spacing={2}>
@@ -223,7 +225,6 @@ const AppliedCard = ({
                   </Avatar>
                 </ListItemIcon>
               </ListItem>
-              {/* )} */}
             </List>
 
             <Grid container style={{ padding: "30px 15px 20px 15px" }}>

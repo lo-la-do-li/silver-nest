@@ -1,7 +1,7 @@
 export const saveResidentApplied = (store, resident) => {
   const newApplication = store.state.residentsApplied.push(resident);
   store.setState({ newApplication });
-  console.log(store.state.residentsApplied);
+  console.log("globalState.residentsApplied:", store.state.residentsApplied);
 };
 
 export const handleTabChange = (store, tabValue) => {
@@ -19,12 +19,11 @@ export const determineApplyStatus = (store, resident) => {
     resident.applied = true;
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
     var yyyy = today.getFullYear();
 
     today = mm + "/" + dd + "/" + yyyy;
     resident.dateApplied = today;
-    console.log("This resident has been applied for:", resident.applied);
   }
 };
 

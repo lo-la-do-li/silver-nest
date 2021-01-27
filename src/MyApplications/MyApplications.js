@@ -50,13 +50,9 @@ const MyApplications = () => {
         semester={resident.semester}
         applied={resident.applied}
         dateApplied={resident.dateApplied}
-        // message={resident.message}
       />
     );
   });
-  // useEffect(() => {
-  //   setResidentsApplied({ residentsApplied });
-  // }, []);
 
   return (
     <>

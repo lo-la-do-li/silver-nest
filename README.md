@@ -23,7 +23,7 @@ This app was created with two specific audiences in mind and solves a problem fo
 
 The idea is to give students in the college of Health and Human sciences the chance to live with an older adult _rent free_ in exchange for assistance with trips to doctor's appointments, help with mobility, taking medications, and general activities of daily living. <br>
 
-The [Silver Nest Backend Server](https://github.com/chadrick-d-dev/silver-nest-api), created for the original Silver Nest, is a database that enables this application to fetch specific information provided by the older adults who participating in this program.
+The [Silver Nest Backend Server](https://github.com/chadrick-d-dev/silver-nest-api), created by the original SilverNest team, is a database that enables this application to fetch specific information provided by the older adults who are participating in this program.
 
 From here, data is displayed in the app for students to find an older adult whose needs they feel most suited to assist with.
 

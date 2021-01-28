@@ -18,7 +18,7 @@ This app was initially developed as a group project by a team of students in Mod
 
 This app was created with two specific audiences in mind and solves a problem for each stakeholder, respectively.
 
-- College students seeking to enter the medical field, who currently enrolled in a health and human sciences program
+- College students seeking to enter the medical field, who are currently enrolled in a health and human sciences program
 - Older adults who wish to age-in-place, or maintain some independence by continuing to live in their own home.
 
 The idea is to give students in the college of Health and Human sciences the chance to live with an older adult _rent free_ in exchange for assistance with trips to doctor's appointments, help with mobility, taking medications, and general activities of daily living. <br>

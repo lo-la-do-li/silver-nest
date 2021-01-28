@@ -20,13 +20,17 @@ We decided to take on a project idea, which is intended to solve an issue regard
 
 ## Silver Nest in Action:
 
-### About Page: ![About page](https://user-images.githubusercontent.com/68264128/106073842-07789200-60c8-11eb-8875-dc717e7de75f.png)
+### About Page: 
+![About page](https://user-images.githubusercontent.com/68264128/106073842-07789200-60c8-11eb-8875-dc717e7de75f.png)
 
-### View Resident Profile and Apply for Housing: ![View Resident Profile and Apply for Housing](https://media.giphy.com/media/ZoGw6RdXqAKQmFo3NU/giphy.gif)
+### View Resident Profile and Apply for Housing: 
+![View Resident Profile and Apply for Housing](https://media.giphy.com/media/ZoGw6RdXqAKQmFo3NU/giphy.gif)
 
-### Residents Applied mobile view: ![Residents Applied: mobile view](https://user-images.githubusercontent.com/68264128/106074195-a3a29900-60c8-11eb-8e4b-8bd9cab75fa0.png)
+### Residents Applied: mobile view: 
+![Residents Applied: mobile view](https://user-images.githubusercontent.com/68264128/106074195-a3a29900-60c8-11eb-8e4b-8bd9cab75fa0.png)
 
-### New Message Feature: ![New Message Feature](https://media.giphy.com/media/yow7UmeQJ93WGxihdy/giphy.gif)
+### New Message Feature: 
+![New Message Feature](https://media.giphy.com/media/yow7UmeQJ93WGxihdy/giphy.gif)
 
 
 ## Goals

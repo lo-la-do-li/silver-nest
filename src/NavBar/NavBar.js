@@ -8,7 +8,7 @@ import Box from "@material-ui/core/Box";
 import silverNestLogo from "../silverNestLogo3.png";
 import useGlobal from "../store";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     display: "flex",
     justifyContent: "space-between",
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 10,
     height: 28,
   },
-}));
+});
 
 const NavBar = () => {
   const classes = useStyles();

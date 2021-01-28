@@ -1,6 +1,6 @@
 # [SilverNest, v2](https://silver-nest-app.herokuapp.com/about) *a full-stack project*
-Updated by: [Lola Dolinsky](https://github.com/lo-la-do-li)
-[Original SilverNest](https://silver-nest.herokuapp.com/about) developed with: [Chadrick Dickerson](https://github.com/chadrick-d-dev), and [Cameron Romo](https://github.com/cameronRomo)
+### Updated by: [Lola Dolinsky](https://github.com/lo-la-do-li)
+####[Original SilverNest](https://silver-nest.herokuapp.com/about) developed with: [Chadrick Dickerson](https://github.com/chadrick-d-dev) and [Cameron Romo](https://github.com/cameronRomo)
 
 ## Table of Contents
 
@@ -10,7 +10,7 @@ Updated by: [Lola Dolinsky](https://github.com/lo-la-do-li)
 * [Challenges](#challenges)
 * [Wins](#wins)
 * [Roadmap](#roadmap)
-* [Contributors](#contributors)
+* [Contributor](#contributor)
 
 ## Project Overview
 
@@ -20,13 +20,17 @@ We decided to take on a project idea, which is intended to solve an issue regard
 
 ## Silver Nest in Action:
 
-![Screen Shot 2021-01-13 at 12 54 48 AM](https://user-images.githubusercontent.com/63012953/104422649-4b04c500-553a-11eb-9d44-99e41f95d115.png)
 
-![Screen Shot 2021-01-13 at 12 55 07 AM](https://user-images.githubusercontent.com/63012953/104422654-4c35f200-553a-11eb-8f8f-1bb070afb7f8.png)
+
+![About Page](https://user-images.githubusercontent.com/63012953/104422654-4c35f200-553a-11eb-8f8f-1bb070afb7f8.png)
 
 ![Screen Shot 2021-01-13 at 12 56 42 AM](https://user-images.githubusercontent.com/63012953/104422660-4d671f00-553a-11eb-8be6-4bc2aa310a45.png)
 
-![silver-nest-gif](https://user-images.githubusercontent.com/12281987/104424154-39242180-553c-11eb-9313-93c1cd5e7d91.gif)
+![View Resident Profile and Apply for Housing](https://media.giphy.com/media/ZoGw6RdXqAKQmFo3NU/giphy.gif)
+
+![New Message Feature](https://media.giphy.com/media/yow7UmeQJ93WGxihdy/giphy.gif)
+
+
 
 ## Goals
 * Build a backend server with PostgreSQL, Express, and Knex
@@ -106,9 +110,3 @@ With more time, we would like to enhance the UI/UX by:
 
 - [Cameron Romo](https://github.com/cameronRomo)
 
-## Thanks to our mentors,
-
-* [Nicole Gooden](https://github.com/nicolegooden)
-* [Steph Segura](https://github.com/Musiclove43)
-* Eric Fitzsimons
-* Project Managers

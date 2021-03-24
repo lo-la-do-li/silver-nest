@@ -42,6 +42,9 @@ const useStyles = makeStyles({
 
 function FindARoommate() {
   const classes = useStyles();
+  const [allResidents, setAllResidents] = useGlobal(
+    (state) => state.allResidents
+  );
   const [availableResidents, setAvailableResidents] = useState([]);
   const [selectedResident, setSelectedResident] = useState(null);
   const [profile, setProfile] = useState(false);
@@ -49,7 +52,9 @@ function FindARoommate() {
 
   useEffect(() => {
     if (semester !== "") {
-      getAvailableResidents(semester);
+      // getAvailableResidents(semester);
+      backupGetAvailableResidents(semester);
+      console.log(availableResidents);
     }
   }, [semester]);
 
@@ -57,6 +62,15 @@ function FindARoommate() {
     await getResidentsBySemester(semester)
       .then((data) => setAvailableResidents(data))
       .catch((err) => console.log(err));
+  };
+
+  const backupGetAvailableResidents = (semester) => {
+    console.log(allResidents);
+    const residentMatches = allResidents.filter(
+      (resident) => resident.semester === semester
+    );
+    console.log("backupGetAvailableResidents", residentMatches);
+    return setAvailableResidents(residentMatches);
   };
 
   const selectResident = (resident) => {

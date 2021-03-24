@@ -127,7 +127,7 @@ const residentsData = [
     id: 47,
     name: "Jerry",
     photo:
-      "https://silverlakecenter.com/wp-content/uploads/sites/63/2015/05/silver-lake-center-people-weve-touched.jpg",
+      "https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png",
     age: "80",
     height: "6'",
     weight: "220 lbs",

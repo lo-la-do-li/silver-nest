@@ -6,6 +6,7 @@ import Profile from "../Profile/Profile";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
+import residentsData from "../residentsData";
 
 const useStyles = makeStyles({
   root: {
@@ -29,7 +30,8 @@ const AllResidents = () => {
   const [selectedResident, setSelectedResident] = useState(null);
 
   useEffect(() => {
-    getAllResidents();
+    // getAllResidents();
+    backupGetAllResidents();
   }, []);
 
   const getAllResidents = async () => {
@@ -37,6 +39,11 @@ const AllResidents = () => {
       .then((residents) => setAllResidents(residents))
       .catch((err) => console.log(err));
   };
+
+  const backupGetAllResidents = () => {
+    setAllResidents(residentsData);
+  };
+
   const selectResident = (resident) => {
     setProfile(true);
     setSelectedResident(resident);

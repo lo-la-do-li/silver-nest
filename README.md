@@ -4,8 +4,7 @@
 
 This app was initially developed as a group project by a team of students in Mod 3 at Turing School of Software & Design, including myself, [Chadrick Dickerson](https://github.com/chadrick-d-dev) and [Cameron Romo](https://github.com/cameronRomo). The updated version has added features, functionality, and styling.
 
-- Link to [SilverNest, v2](https://silver-nest-app.herokuapp.com/about)
-- Link to the original SilverNest [here](https://silver-nest.herokuapp.com/about).
+- Link to [SilverNest, v2](https://www.silver-nest.com/)
 
 ## Table of Contents
 
@@ -28,6 +27,8 @@ The [Silver Nest Backend Server](https://github.com/chadrick-d-dev/silver-nest-a
 
 From here, data is displayed in the app for students to find an older adult whose needs they feel most suited to assist with.
 
+* **The resident profile information displayed was created by the original SilverNest team. These are not real individuals. This website and the programs/organizations implied are a simulation** 
+
 ## Technologies And Tools
 
 > - React (w/ hooks)
@@ -41,8 +42,9 @@ From here, data is displayed in the app for students to find an older adult whos
 >   - PostgreSQL
 >   - Postico
 >   - Knex
-> - Front/Backend Deployment:
->   - Heroku
+> - Deployment
+>   - AWS (Front End)
+>   - Heroku (Back End)
 > - Project Management
 >   - Git
 >   - GitHub Projects
